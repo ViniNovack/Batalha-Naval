@@ -10,25 +10,49 @@ def matriz10():
             [0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0]]
 
+
+
 def arma2():
     return [[0,0,0,0,0],
             [0,0,"◀","▩",0],
             [0,0,0,0,0]]
 
+
+
 def colocar_arma2(M, x, y):
     M[x][y] = "◀"
     M[x][y + 1] = "▩"
+
+
 
 def arma3():
     return [[0,0,0,0,0],
             [0,"◀","▩","▩",0],
             [0,0,0,0,0]]
 
+
+
+def colocar_arma3(M, x, y):
+    M[x][y] = "◀"
+    M[x][y + 1] = "▩"
+    M[x][y + 2] = "▩"
+
+
+
 def arma4():
     return [[0,0,0,0,0],
             [0,"◀","▩","▩",0],
             [0,0,0,"▩",0]]
-    
+
+
+
+def colocar_arma4(M, x, y):
+    M[x][y] = "◀"
+    M[x][y + 1] = "▩"
+    M[x][y + 2] = "▩"
+    M[x + 1][y + 1] = "▩"
+
+
 
 def show_armas():
     grade2 = arma2()
@@ -42,6 +66,8 @@ def show_armas():
         print("        ", end = "")
         print(*grade4[i], end = "")
         print()
+
+
 
 def showMatriz(matriz):
     print()
@@ -62,20 +88,32 @@ def showMatriz(matriz):
         x +=1
     print()
 
+
+
 def verif_cordenada_X():
     while True:
-        x = int(input('Digite a cordenada X: '))
-        if x == 1 or x == 2 or x == 3:
-            break
-        else:
+        try:
+            x = int(input('Digite a cordenada X: '))
+            if x in range(0, 10):
+                return x
+            else:
+                print('Resposta invalida, tente de novo')
+                continue
+        except:
             print('Resposta invalida, tente de novo')
-    return x
+            continue
+
+
 
 def verif_cordenada_Y():
     while True:
-        y = int(input('Digite a cordenada Y: '))
-        if y == 1 or y == 2 or y == 3:
-            break
-        else:
+        try:
+            y = int(input('Digite a cordenada Y: '))
+            if y in range(0, 10):
+                return y
+            else:
+                print('Resposta invalida, tente de novo')
+                continue
+        except:
             print('Resposta invalida, tente de novo')
-    return y
+            continue
