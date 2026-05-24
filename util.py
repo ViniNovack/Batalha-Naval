@@ -15,7 +15,10 @@ def arma2():
             [0,0,"◀","▩",0],
             [0,0,0,0,0]]
 
-    
+def colocar_arma2(M, x, y):
+    M[x][y] = "◀"
+    M[x][y + 1] = "▩"
+
 def arma3():
     return [[0,0,0,0,0],
             [0,"◀","▩","▩",0],
@@ -58,3 +61,21 @@ def showMatriz(matriz):
         print(*i)
         x +=1
     print()
+
+def verif_cordenada_X():
+    while True:
+        x = int(input('Digite a cordenada X: '))
+        if x == 1 or x == 2 or x == 3:
+            break
+        else:
+            print('Resposta invalida, tente de novo')
+    return x
+
+def verif_cordenada_Y():
+    while True:
+        y = int(input('Digite a cordenada Y: '))
+        if y == 1 or y == 2 or y == 3:
+            break
+        else:
+            print('Resposta invalida, tente de novo')
+    return y
