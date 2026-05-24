@@ -52,8 +52,9 @@ def showMatriz(matriz):
     print("   ", end = "")
     print("—⊽"*len(matriz[0]) + "—")
 
+    x = 0
     for i in matriz:
-        print(f"{matriz.index(i)} ⊳ ", end = "")
+        print(f"{x} ⊳ ", end = "")
         print(*i)
-    
-    print("-"*15)
+        x +=1
+    print()
