@@ -4,7 +4,7 @@ import os
 import random
 
 def humano_bot():
-    MASC = funcoes.matriz10
+    MASC = funcoes.matriz10()
     M = funcoes.matriz10()
     A2 = [0,0,"◀","▩",0]
     
@@ -92,15 +92,11 @@ def humano_bot():
             continue
     
     # JOGO
-    for c in MASC:
-        for l in c:
-            print(f'[{M[c][l]}]', end='')
+    os.system('cls')
+    print('O JOGO COMEÇOU'.center(30))
+    for l in range(0, 10):
+        for c in range(0, 10):
+            print(f'[{MASC[l][c]}]', end='')
         print()
-# humano_bot()
 
-
-MASC = funcoes.matriz10
-for c in MASC:
-        for l in c:
-            print(f'[{MASC[c][l]}]', end='')
-        print()
+humano_bot()
