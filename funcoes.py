@@ -20,8 +20,18 @@ def arma2():
 
 
 def colocar_arma2(M, x, y):
+    if x < 0 or x >= len(M) or y < 0 or y >= len(M[0]):
+        print("Resposta invalida, tente de novo")
+        return False
+    if y + 1 >= len(M[0]):
+        print("Resposta invalida, tente de novo")
+        return False
+    if M[x][y] == "◀" or M[x][y] == "▩" or M[x][y + 1] == "◀" or M[x][y + 1] == "▩":
+        print("Resposta invalida, tente de novo")
+        return False
     M[x][y] = "◀"
     M[x][y + 1] = "▩"
+    return True
 
 
 
@@ -33,9 +43,19 @@ def arma3():
 
 
 def colocar_arma3(M, x, y):
+    if x < 0 or x >= len(M) or y < 0 or y >= len(M[0]):
+        print("Resposta invalida, tente de novo")
+        return False
+    if y + 2 >= len(M[0]):
+        print("Resposta invalida, tente de novo")
+        return False
+    if M[x][y] == "◀" or M[x][y] == "▩" or M[x][y + 1] == "◀" or M[x][y + 1] == "▩" or M[x][y + 2] == "◀" or M[x][y + 2] == "▩":
+        print("Resposta invalida, tente de novo")
+        return False
     M[x][y] = "◀"
     M[x][y + 1] = "▩"
     M[x][y + 2] = "▩"
+    return True
 
 
 
@@ -47,10 +67,20 @@ def arma4():
 
 
 def colocar_arma4(M, x, y):
+    if x < 0 or x >= len(M) or y < 0 or y >= len(M[0]):
+        print("Resposta invalida, tente de novo")
+        return False
+    if y + 2 >= len(M[0]) or x + 1 >= len(M):
+        print("Resposta invalida, tente de novo")
+        return False
+    if M[x][y] == "◀" or M[x][y] == "▩" or  M[x][y + 1] == "◀" or  M[x][y + 1] == "▩" or M[x][y + 2] == "◀" or M[x][y + 2] == "▩" or M[x + 1][y + 1] == "◀" or M[x + 1][y + 1] == "▩":
+        print("Resposta invalida, tente de novo")
+        return False
     M[x][y] = "◀"
     M[x][y + 1] = "▩"
     M[x][y + 2] = "▩"
     M[x + 1][y + 1] = "▩"
+    return True  
 
 
 
