@@ -1,3 +1,7 @@
+import random
+
+
+
 def matriz10():
     return [[0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0],
@@ -116,7 +120,6 @@ def showMatriz(matriz):
         print(f"{x} ⊳ ", end = "")
         print(*i)
         x +=1
-    print()
 
 
 
