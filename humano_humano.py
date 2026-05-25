@@ -1,16 +1,16 @@
-import util
+import funcoes
 
 def humano_humano():
-    matrizA = util.matriz10()
-    matrizB = util.matriz10()
+    matrizA = funcoes.matriz10()
+    matrizB = funcoes.matriz10()
     print("\nVocê faz parte da Resistência!")
     print("\nVocê tem 3 opcções de arma:")
     print("-"*45)
-    util.show_armas()
+    funcoes.show_armas()
     print("-"*45)
     print("\nobs.: Você deverá posicionar pela ponta delas: ◀")
     print("\nPRIMEIRA ARMA")
-    util.showMatriz(util.arma2())
+    funcoes.showMatriz(funcoes.arma2())
 
     
     
