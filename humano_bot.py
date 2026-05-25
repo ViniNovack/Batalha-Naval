@@ -20,26 +20,27 @@ def humano_bot():
             n = int(input('Digite a númeração da nave: '))
         except:
             print('Digite nova mente, houve um erro')
+
         if n in range(1, 4):
             verf = False
             match n:
                 case 1:
                     while verf == False:
-                        x = funcoes.verif_cordenada_X()
+                        x = funcoes.verif_cordenada_X(1)
                         y = funcoes.verif_cordenada_Y()
                         verf = funcoes.colocar_arma2(M, x, y)
                         funcoes.showMatriz(M)
                     cont +=1
                 case 2:
                     while verf == False:
-                        x = funcoes.verif_cordenada_X()
+                        x = funcoes.verif_cordenada_X(2)
                         y = funcoes.verif_cordenada_Y()
                         verf = funcoes.colocar_arma3(M, x, y)
                         funcoes.showMatriz(M)
                     cont +=1
                 case 3:
                     while verf == False:
-                        x = funcoes.verif_cordenada_X()
+                        x = funcoes.verif_cordenada_X(3)
                         y = funcoes.verif_cordenada_Y()
                         verf = funcoes.colocar_arma4(M, x, y)
                         funcoes.showMatriz(M)

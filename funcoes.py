@@ -20,15 +20,10 @@ def arma2():
 
 
 def colocar_arma2(M, x, y):
-    if x < 0 or x >= len(M) or y < 0 or y >= len(M[0]):
-        print("Resposta invalida, tente de novo")
+    if (M[x][y] != 0 or M[x][y + 1] != 0):
+        print("A arma não pode sobrepor outra, tente de novo")
         return False
-    if y + 1 >= len(M[0]):
-        print("Resposta invalida, tente de novo")
-        return False
-    if M[x][y] == "◀" or M[x][y] == "▩" or M[x][y + 1] == "◀" or M[x][y + 1] == "▩":
-        print("Resposta invalida, tente de novo")
-        return False
+    
     M[x][y] = "◀"
     M[x][y + 1] = "▩"
     return True
@@ -43,15 +38,10 @@ def arma3():
 
 
 def colocar_arma3(M, x, y):
-    if x < 0 or x >= len(M) or y < 0 or y >= len(M[0]):
-        print("Resposta invalida, tente de novo")
+    if (M[x][y] !=0 or M[x][y + 1] != 0 or M[x][y + 2] != 0):
+        print("A arma não pode sobrepor outra, tente de novo")
         return False
-    if y + 2 >= len(M[0]):
-        print("Resposta invalida, tente de novo")
-        return False
-    if M[x][y] == "◀" or M[x][y] == "▩" or M[x][y + 1] == "◀" or M[x][y + 1] == "▩" or M[x][y + 2] == "◀" or M[x][y + 2] == "▩":
-        print("Resposta invalida, tente de novo")
-        return False
+    
     M[x][y] = "◀"
     M[x][y + 1] = "▩"
     M[x][y + 2] = "▩"
@@ -67,15 +57,10 @@ def arma4():
 
 
 def colocar_arma4(M, x, y):
-    if x < 0 or x >= len(M) or y < 0 or y >= len(M[0]):
-        print("Resposta invalida, tente de novo")
+    if (M[x][y] != 0 or M[x][y + 1] != 0 or M[x][y + 2] !=0 or M[x + 1][y + 1] != 0):
+        print("A arma não pode sobrepor outra, tente de novo")
         return False
-    if y + 2 >= len(M[0]) or x + 1 >= len(M):
-        print("Resposta invalida, tente de novo")
-        return False
-    if M[x][y] == "◀" or M[x][y] == "▩" or  M[x][y + 1] == "◀" or  M[x][y + 1] == "▩" or M[x][y + 2] == "◀" or M[x][y + 2] == "▩" or M[x + 1][y + 1] == "◀" or M[x + 1][y + 1] == "▩":
-        print("Resposta invalida, tente de novo")
-        return False
+    
     M[x][y] = "◀"
     M[x][y + 1] = "▩"
     M[x][y + 2] = "▩"
@@ -120,19 +105,26 @@ def showMatriz(matriz):
 
 
 
-def verif_cordenada_X():
+def verif_cordenada_X(size):
     while True:
         try:
             x = int(input('Digite a cordenada X: '))
+            
+                
             if x in range(0, 10):
-                return x
+                if x+size in range(0, 10):
+                    return x
+                else:
+                    print('Resposta invalida, tente de novo')
+                    continue
             else:
                 print('Resposta invalida, tente de novo')
                 continue
         except:
             print('Resposta invalida, tente de novo')
             continue
-
+                    
+        
 
 
 def verif_cordenada_Y():
