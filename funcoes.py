@@ -24,12 +24,12 @@ def arma2():
 
 
 def colocar_arma2(M, x, y):
-    if (M[x][y] != 0 or M[x][y + 1] != 0):
+    if (M[y][x] != 0 or M[y][x + 1] != 0):
         print("A arma não pode sobrepor outra, tente de novo")
         return False
     
-    M[x][y] = "◀"
-    M[x][y + 1] = "▩"
+    M[y][x] = "◀"
+    M[y][x + 1] = "▩"
     return True
 
 
@@ -42,13 +42,13 @@ def arma3():
 
 
 def colocar_arma3(M, x, y):
-    if (M[x][y] !=0 or M[x][y + 1] != 0 or M[x][y + 2] != 0):
+    if (M[y][x] !=0 or M[y][x + 1] != 0 or M[y][x + 2] != 0):
         print("A arma não pode sobrepor outra, tente de novo")
         return False
     
-    M[x][y] = "◀"
-    M[x][y + 1] = "▩"
-    M[x][y + 2] = "▩"
+    M[y][x] = "◀"
+    M[y][x + 1] = "▩"
+    M[y][x + 2] = "▩"
     return True
 
 
@@ -61,14 +61,14 @@ def arma4():
 
 
 def colocar_arma4(M, x, y):
-    if (M[x][y] != 0 or M[x][y + 1] != 0 or M[x][y + 2] !=0 or M[x + 1][y + 1] != 0):
+    if (M[y][x] != 0 or M[y][x + 1] != 0 or M[y][x + 2] !=0 or M[y + 1][x + 1] != 0):
         print("A arma não pode sobrepor outra, tente de novo")
         return False
     
-    M[x][y] = "◀"
-    M[x][y + 1] = "▩"
-    M[x][y + 2] = "▩"
-    M[x + 1][y + 1] = "▩"
+    M[y][x] = "◀"
+    M[y][x + 1] = "▩"
+    M[y][x + 2] = "▩"
+    M[y + 1][x + 1] = "▩"
     return True  
 
 

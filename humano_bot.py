@@ -69,22 +69,22 @@ def humano_bot():
             match n:
                 case 1:
                     while verf == False:
-                        x = random.randrange(0, 10)
-                        y = random.randrange(0, 10)
+                        x = random.randrange(0, 9)
+                        y = random.randrange(0, 9)
                         verf = funcoes.colocar_arma2(M, x, y)
                         funcoes.showMatriz(M)
                     cont +=1
                 case 2:
                     while verf == False:
-                        x = random.randrange(0, 10)
-                        y = random.randrange(0, 10)
+                        x = random.randrange(0, 9)
+                        y = random.randrange(0, 9)
                         verf = funcoes.colocar_arma3(M, x, y)
                         funcoes.showMatriz(M)
                     cont +=1
                 case 3:
                     while verf == False:
-                        x = random.randrange(0, 10)
-                        y = random.randrange(0, 10)
+                        x = random.randrange(0, 9)
+                        y = random.randrange(0, 9)
                         verf = funcoes.colocar_arma4(M, x, y)
                         funcoes.showMatriz(M)
                     cont +=1
