@@ -112,8 +112,6 @@ def verif_cordenada_X(size):
     while True:
         try:
             x = int(input('Digite a cordenada X: '))
-            
-                
             if x in range(0, 10):
                 if x+size in range(0, 10):
                     return x
@@ -127,7 +125,21 @@ def verif_cordenada_X(size):
             print('Resposta invalida, tente de novo')
             continue
                     
-        
+
+
+def verif_cordenada_XX():
+    while True:
+        try:
+            x = int(input('Digite a cordenada X: '))
+            if x in range(0, 10):
+                return x
+            else:
+                print('Resposta invalida, tente de novo')
+                continue
+        except:
+            print('Resposta invalida, tente de novo')
+            continue
+
 
 
 def verif_cordenada_Y():
@@ -142,3 +154,13 @@ def verif_cordenada_Y():
         except:
             print('Resposta invalida, tente de novo')
             continue
+
+
+
+def jogadas_ataque(M, x, y, MM=0):
+    if M[x][y] == "◀" or M[x][y] == "▩":
+        M[x][y] == '💥'
+        MM[x][y] == '💥'
+        return True
+    else:
+        return False

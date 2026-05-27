@@ -4,8 +4,14 @@ import os
 import random
 
 def humano_bot():
-    MASC = funcoes.matriz10()
-    M = funcoes.matriz10()
+    MASCH = funcoes.matriz10()
+    MASCR = funcoes.matriz10()
+    MH = funcoes.matriz10()
+    MR = funcoes.matriz10()
+
+    vidaR = 0
+    vidaH = 0
+    
     A2 = [0,0,"◀","▩",0]
     
     A3 = [0,"◀","▩","▩",0]
@@ -14,7 +20,7 @@ def humano_bot():
     A4b = [0,0,0,"▩",0]
     
     # HUMANO
-    funcoes.showMatriz(M)
+    funcoes.showMatriz(MH)
     cont = 0
     while cont <= 5:
         print("Escolha as naves que voce quer posicionar: ")
@@ -23,6 +29,7 @@ def humano_bot():
             n = int(input('Digite a númeração da nave: '))
         except:
             print('Digite nova mente, houve um erro')
+            continue
 
         if n in range(1, 4):
             verf = False
@@ -31,29 +38,29 @@ def humano_bot():
                     while verf == False:
                         x = funcoes.verif_cordenada_X(1)
                         y = funcoes.verif_cordenada_Y()
-                        verf = funcoes.colocar_arma2(M, x, y)
-                        funcoes.showMatriz(M)
+                        verf = funcoes.colocar_arma2(MH, x, y)
+                        funcoes.showMatriz(MH)
                     cont +=1
                 case 2:
                     while verf == False:
                         x = funcoes.verif_cordenada_X(2)
                         y = funcoes.verif_cordenada_Y()
-                        verf = funcoes.colocar_arma3(M, x, y)
-                        funcoes.showMatriz(M)
+                        verf = funcoes.colocar_arma3(MH, x, y)
+                        funcoes.showMatriz(MH)
                     cont +=1
                 case 3:
                     while verf == False:
                         x = funcoes.verif_cordenada_X(3)
                         y = funcoes.verif_cordenada_Y()
-                        verf = funcoes.colocar_arma4(M, x, y)
-                        funcoes.showMatriz(M)
+                        verf = funcoes.colocar_arma4(MH, x, y)
+                        funcoes.showMatriz(MH)
                     cont +=1
         else:
             print('Digite nova mente, houve um erro')
             continue
     
     # ROBO
-    funcoes.showMatriz(M)
+    funcoes.showMatriz(MR)
     cont = 0
     while cont <= 5:
         print("Escolha as naves que voce quer posicionar: ")
@@ -71,22 +78,22 @@ def humano_bot():
                     while verf == False:
                         x = random.randrange(0, 9)
                         y = random.randrange(0, 9)
-                        verf = funcoes.colocar_arma2(M, x, y)
-                        funcoes.showMatriz(M)
+                        verf = funcoes.colocar_arma2(MR, x, y)
+                        funcoes.showMatriz(MR)
                     cont +=1
                 case 2:
                     while verf == False:
                         x = random.randrange(0, 9)
                         y = random.randrange(0, 9)
-                        verf = funcoes.colocar_arma3(M, x, y)
-                        funcoes.showMatriz(M)
+                        verf = funcoes.colocar_arma3(MR, x, y)
+                        funcoes.showMatriz(MR)
                     cont +=1
                 case 3:
                     while verf == False:
                         x = random.randrange(0, 9)
                         y = random.randrange(0, 9)
-                        verf = funcoes.colocar_arma4(M, x, y)
-                        funcoes.showMatriz(M)
+                        verf = funcoes.colocar_arma4(MR, x, y)
+                        funcoes.showMatriz(MR)
                     cont +=1
         else:
             print('Digite nova mente, houve um erro')
@@ -95,9 +102,29 @@ def humano_bot():
     # JOGO
     os.system('cls')
     print('O JOGO COMEÇOU'.center(30))
+    print()
+    print('Espaço da Resistencia'.center(10))
     for l in range(0, 10):
         for c in range(0, 10):
-            print(f'[{MASC[l][c]}]', end='')
+            print(f'[{MASCH[l][c]}]', end='')
         print()
+    print()
+    print('Espaço do Imperio'.center(10))
+    for l in range(0, 10):
+        for c in range(0, 10):
+            print(f'[{MASCR[l][c]}]', end='')
+        print()
+    
+    print()
+    # JOGADAS
+    while vidaH == 0 or vidaR == 0:
+        print('Faça seu ataque')
+        x = funcoes.verif_cordenada_XX()
+        y = funcoes.verif_cordenada_Y()
+        funcoes.jogadas_ataque(MR, x, y, MASCR)
 
+        print('Minha vez')
+        x = random.randrange(0, 10)
+        y = random.randrange(0, 10)
+        funcoes.jogadas_ataque(MH, x, y, MASCH)
 humano_bot()
