@@ -117,14 +117,19 @@ def humano_bot():
     
     print()
     # JOGADAS
-    while vidaH == 0 or vidaR == 0:
-        print('Faça seu ataque')
-        x = funcoes.verif_cordenada_XX()
-        y = funcoes.verif_cordenada_Y()
-        funcoes.jogadas_ataque(MR, x, y, MASCR)
+    contt = 0
+    while vidaH != 0 or vidaR != 0:
+        if contt == 1:
+            os.system('cls')
+            print('Faça seu ataque')
+            x = funcoes.verif_cordenada_XX()
+            y = funcoes.verif_cordenada_Y()
+            funcoes.jogadas_ataque(MR, x, y, MASCR)
 
-        print('Minha vez')
-        x = random.randrange(0, 10)
-        y = random.randrange(0, 10)
-        funcoes.jogadas_ataque(MH, x, y, MASCH)
+            print('Minha vez')
+            x = random.randrange(0, 10)
+            y = random.randrange(0, 10)
+            funcoes.jogadas_ataque(MH, x, y, MASCH)
+        else:
+            pass
 humano_bot()
