@@ -159,8 +159,18 @@ def verif_cordenada_Y():
 
 def jogadas_ataque(M, x, y, MM=0):
     if M[x][y] == "◀" or M[x][y] == "▩":
-        M[x][y] == '💥'
-        MM[x][y] == '💥'
+        M[x][y] = '💥'
+        MM[x][y] = '💥'
         return True
     else:
+        M[x][y] = '🌟'
+        MM[x][y] = '🌟'
         return False
+
+
+
+def masc(M):
+    for l in range(0, 10):
+        for c in range(0, 10):
+            print(f'[{M[l][c]}]', end='')
+        print()
