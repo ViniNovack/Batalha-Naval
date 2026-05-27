@@ -164,5 +164,3 @@ def jogadas_ataque(M, x, y, MM=0):
         return True
     else:
         return False
-
-print('Hello, wolde')
