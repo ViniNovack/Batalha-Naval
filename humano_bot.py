@@ -65,8 +65,6 @@ def humano_bot():
     funcoes.showMatriz(MR)
     cont = 0
     while cont <= 5:
-        print("Escolha as naves que voce quer posicionar: ")
-        print(' 1.', A2, '\n', '2.', A3, '\n', '3.', A4a, '\n', f'   {A4b}')
         try:
             print('Digite a númeração da nave: ', end='')
             n = random.randrange(1, 4)
