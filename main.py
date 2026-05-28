@@ -4,7 +4,8 @@ import os
 import pygame
 
 def main():
-    pygame.mixer.music.load('tema.mp3') 
+    pygame.mixer.init()
+    pygame.mixer.music.load('Star-Wars-3.ogg') 
     pygame.mixer.music.play()
     time.sleep(2) 
     
@@ -67,6 +68,7 @@ def main():
         print(linha_centralizada)
         time.sleep(4) 
     os.system('cls')
+    print('\n'*30)
 
 if __name__ == '__main__':
     main()
