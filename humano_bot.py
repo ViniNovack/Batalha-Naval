@@ -12,19 +12,18 @@ def humano_bot():
     vidaR = 0
     vidaH = 0
     
-    A2 = [0,0,"◀","▩",0]
-    
-    A3 = [0,"◀","▩","▩",0]
-    
-    A4a = [0,"◀","▩","▩",0]
-    A4b = [0,0,0,"▩",0]
-    
     # HUMANO
     funcoes.showMatriz(MH)
     cont = 0
+
+    print("\nVocê tem 3 opcções de arma:")
+    
     while cont <= 5:
-        print("Escolha as naves que voce quer posicionar: ")
-        print(' 1.', A2, '\n', '2.', A3, '\n', '3.', A4a, '\n', f'   {A4b}')
+        print("-"*45)
+        funcoes.show_armas()
+        print("-"*45)
+        print("\nobs.: Você deverá posicionar pela ponta delas: ◀")
+
         try:
             n = int(input('Digite a númeração da nave: '))
         except:

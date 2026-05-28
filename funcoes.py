@@ -78,7 +78,9 @@ def show_armas():
     grade3 = arma3()
     grade4 = arma4()
 
-    for i in range(3):
+    print("1." + " "*15 + "2." + " "*15 + "3." + " "*15)
+
+    for i in range(3): 
         print(*grade2[i], end = "")
         print("        ", end = "")
         print(*grade3[i], end = "")
