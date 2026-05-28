@@ -142,12 +142,16 @@ def verif_cordenada_XX():
 
 
 
-def verif_cordenada_Y():
+def verif_cordenada_Y(size):
     while True:
         try:
             y = int(input('Digite a cordenada Y: '))
             if y in range(0, 10):
-                return y
+                if y+size in range (0,10):
+                    return y
+                else:
+                    print('Resposta invalida, tente de novo')
+                    continue
             else:
                 print('Resposta invalida, tente de novo')
                 continue

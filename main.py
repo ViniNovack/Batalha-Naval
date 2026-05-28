@@ -61,7 +61,7 @@ def main():
         # Centraliza a linha de acordo com o tamanho do terminal
         linha_centralizada = linha.center(largura_terminal)
         print(linha_centralizada)
-        time.sleep(1) 
+        time.sleep(4) 
     os.system('cls')
 
 if __name__ == '__main__':

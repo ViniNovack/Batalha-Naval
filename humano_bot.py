@@ -37,7 +37,7 @@ def humano_bot():
                 case 1:
                     while verf == False:
                         x = funcoes.verif_cordenada_X(1)
-                        y = funcoes.verif_cordenada_Y()
+                        y = funcoes.verif_cordenada_Y(0)
                         verf = funcoes.colocar_arma2(MH, x, y)
                         funcoes.showMatriz(MH)
                     cont +=1
@@ -45,7 +45,7 @@ def humano_bot():
                 case 2:
                     while verf == False:
                         x = funcoes.verif_cordenada_X(2)
-                        y = funcoes.verif_cordenada_Y()
+                        y = funcoes.verif_cordenada_Y(0)
                         verf = funcoes.colocar_arma3(MH, x, y)
                         funcoes.showMatriz(MH)
                     cont +=1
@@ -53,7 +53,7 @@ def humano_bot():
                 case 3:
                     while verf == False:
                         x = funcoes.verif_cordenada_X(3)
-                        y = funcoes.verif_cordenada_Y()
+                        y = funcoes.verif_cordenada_Y(1)
                         verf = funcoes.colocar_arma4(MH, x, y)
                         funcoes.showMatriz(MH)
                     cont +=1
