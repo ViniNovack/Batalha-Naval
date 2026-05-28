@@ -5,7 +5,7 @@ import pygame
 
 def main():
     pygame.mixer.init()
-    pygame.mixer.music.load('Star-Wars-3.ogg') 
+    pygame.mixer.music.load('Star-Wars-Main-Theme-_Full_.ogg') 
     pygame.mixer.music.play()
     time.sleep(2) 
     
@@ -66,9 +66,11 @@ def main():
         # Centraliza a linha de acordo com o tamanho do terminal
         linha_centralizada = linha.center(largura_terminal)
         print(linha_centralizada)
-        time.sleep(4) 
+        time.sleep(2)
+    
+    for n in range(0, 30):
+        print()
     os.system('cls')
-    print('\n'*30)
 
 if __name__ == '__main__':
     main()
