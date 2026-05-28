@@ -68,7 +68,8 @@ def main():
         print(linha_centralizada)
         time.sleep(2)
     
-    for n in range(0, 30):
+    for n in range(0, 36):
+        time.sleep(1)
         print()
     os.system('cls')
 
