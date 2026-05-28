@@ -12,19 +12,18 @@ def humano_bot():
     vidaR = 0
     vidaH = 0
     
-    A2 = [0,0,"◀","▩",0]
-    
-    A3 = [0,"◀","▩","▩",0]
-    
-    A4a = [0,"◀","▩","▩",0]
-    A4b = [0,0,0,"▩",0]
-    
     # HUMANO
     funcoes.showMatriz(MH)
     cont = 0
+
+    print("\nVocê tem 3 opcções de arma:")
+    
     while cont <= 5:
-        print("Escolha as naves que voce quer posicionar: ")
-        print(' 1.', A2, '\n', '2.', A3, '\n', '3.', A4a, '\n', f'   {A4b}')
+        print("-"*45)
+        funcoes.show_armas()
+        print("-"*45)
+        print("\nobs.: Você deverá posicionar pela ponta delas: ◀")
+
         try:
             n = int(input('Digite a númeração da nave: '))
         except:
@@ -37,7 +36,7 @@ def humano_bot():
                 case 1:
                     while verf == False:
                         x = funcoes.verif_cordenada_X(1)
-                        y = funcoes.verif_cordenada_Y()
+                        y = funcoes.verif_cordenada_Y(0)
                         verf = funcoes.colocar_arma2(MH, x, y)
                         funcoes.showMatriz(MH)
                     cont +=1
@@ -45,7 +44,7 @@ def humano_bot():
                 case 2:
                     while verf == False:
                         x = funcoes.verif_cordenada_X(2)
-                        y = funcoes.verif_cordenada_Y()
+                        y = funcoes.verif_cordenada_Y(0)
                         verf = funcoes.colocar_arma3(MH, x, y)
                         funcoes.showMatriz(MH)
                     cont +=1
@@ -53,7 +52,7 @@ def humano_bot():
                 case 3:
                     while verf == False:
                         x = funcoes.verif_cordenada_X(3)
-                        y = funcoes.verif_cordenada_Y()
+                        y = funcoes.verif_cordenada_Y(1)
                         verf = funcoes.colocar_arma4(MH, x, y)
                         funcoes.showMatriz(MH)
                     cont +=1
