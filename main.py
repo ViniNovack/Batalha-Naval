@@ -2,18 +2,22 @@ import time
 import shutil
 import os
 import pygame
+import funcoes_imagens
 
 def main():
     pygame.mixer.init()
     pygame.mixer.music.load('Star-Wars-Main-Theme-_Full_.ogg') 
     pygame.mixer.music.play()
-    time.sleep(2) 
     
-    os.system('cls')
-    texto_abertura = """
-    EPISÓDIO I
-    UMA HISTÓRIA STAR WARS
+    time.sleep(2)
+    funcoes_imagens.episodio()
 
+    time.sleep(2)
+    funcoes_imagens.titulo()
+    
+    time.sleep(1)
+    os.system('cls')
+    texto_abertura = f"""
     É um tempo de tirania sombria. Por décadas, o pacífico povo Gungan foi subjugado pela opressão
     implacável do IMPÉRIO GALÁCTICO. Encorajados pela coragem e liderança da PRINCESA LEIA
     ORGANA, os outrora reclusos Gungans finalmente se levantaram em uma rebelião desesperada,
