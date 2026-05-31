@@ -312,3 +312,8 @@ def escudos_lado_a_lado():
 
     for imp, res in zip(imperio_lines, resistencia_lines):
         print(margem + imp.ljust(largura_imperio) + separador + res)
+
+
+
+if __name__ == '__main__':
+    pass

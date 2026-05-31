@@ -1,5 +1,9 @@
 import random
 import shutil
+import time
+import os
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
+import pygame
 
 
 def matriz10():
@@ -202,3 +206,40 @@ def verif_int(texto, n:int=0):
         except:
             print('Resposta invalida!!, tente de novo')
             continue
+
+
+
+def texto_star_wars(texto, nud=11, nur=61):
+    pygame.mixer.init()
+    pygame.mixer.music.load('digitando.ogg')
+
+    largura_terminal = shutil.get_terminal_size().columns
+    linha_centralizada = texto.center(largura_terminal)
+    x = 1
+    y = 0
+    pygame.mixer.music.play(-1)
+    for c in linha_centralizada:
+        if c == ' ':
+            print(c, end='', flush=True)
+        else:
+            if x == 1:
+                print(c,end='', flush=True)
+                time.sleep(0.2)
+                y +=1
+                if y == nud:
+                    y = 0
+                    x = 2
+            elif x == 2:
+                print(c,end='', flush=True)
+                time.sleep(0.02)
+                y +=1
+                if y == nur:
+                    y = 0
+                    x = 1
+    pygame.mixer.music.stop()
+    print()
+
+
+
+if __name__ == '__main__':
+    pass

@@ -3,10 +3,11 @@ import time
 import os
 import random
 import funcoes_imagens
+import funcoes
 
-    # ff.centr('AGORA ESCOLHA UM LADO E DECIDA O DESTINO DESSA HISTÓRIA\n')
-    # time.sleep(1)
-    # ff.escudos_lado_a_lado()
+
+fu = funcoes
+fi = funcoes_imagens
 
 def humano_bot():
     MASCH = funcoes.matriz10()
@@ -16,7 +17,27 @@ def humano_bot():
 
     vidaR = 0
     vidaH = 0
-    
+#______________________________________________________ABERTURA________________________________________________
+    time.sleep(1)
+    fu.texto_star_wars('AGORA ESCOLHA UM LADO E DECIDA O DESTINO DESSA HISTÓRIA\n')
+    time.sleep(1)
+    fi.escudos_lado_a_lado()
+    opcao = fu.verif_int('» ', 3)
+    if opcao == 1:
+        pass
+    elif opcao == 2:
+        pass
+
+
+
+
+
+
+
+
+
+
+
     # HUMANO
     funcoes.showMatriz(MH)
     cont = 0
@@ -152,6 +173,7 @@ def humano_bot():
         print('VOCÊ DEIXOU O IMPERIO VENCER')
     else:
         print('PARABENS VOCE DESTRUIU COM OS PLANOS DO IMPARIO')
+
 
 
 if __name__ == '__main__':
