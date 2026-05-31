@@ -195,4 +195,120 @@ def imperio():
     MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWNXXKKKXXXNWWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
     MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
     """
-    centr(imperio)
+    largura_terminal = shutil.get_terminal_size().columns
+    for linha in imperio.split('\n'):
+        # Centraliza a linha de acordo com o tamanho do terminal
+        linha_centralizada = linha.center(largura_terminal)
+        print(linha_centralizada)
+
+
+
+def escudos_lado_a_lado():
+    imperio_lines = """
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMWNKOxdocc::;;;;;::cldxO0XWMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMWXOdc;..                    ..,cdOXWMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMNOo;.      ..,;clo;   .:olc:,..      .;oONMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMNkc'     .;ldk0xolc:;.    ';:clok0Odl;.     'lONMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMWKo,    .;okXWMMMNc                cNMMMWXko,.    ,dXWMMMMMMMMMMMMM
+    MMMMMMMMMMMW0c.   .;d0WMMMMWX0x;                ;x0XWMMMMW0o,    .lKWMMMMMMMMMMM
+    MMMMMMMMMWKc.   .lONMMMMNOo:..                     .;oONWMMMNOc.   .oXMMMMMMMMMM
+    MMMMMMMMNd.   .lk0NMMNOl'        .;cloooooolc,.        'lONMMXOkc.   'xNMMMMMMMM
+    MMMMMMW0;   .ckd'.,dd,           ,KMMMMMMMMMMO.           ,do'.,xk;    cKMMMMMMM
+    MMMMMWx.   'xk,                   oWMMMMMMMMNc                   :Od.   ,OWMMMMM
+    MMMMNo.    ,:.        ..          '0MMMMMMMWx.          .         .c'    .xWMMMM
+    MMMNl   .,.         .:OOc.         lNMMMMMMK;         'd0x,          ''   .xWMMM
+    MMWo.  .o0,        ,kWMMW0c.       .kMMMMMWd        'dXMMMXo.        c0c   .kWMM
+    MWk.   l0;        :KMMMMMWW0:.    ':OWMMMMNx;.    .oXMMMMMMWk.        l0:   '0MM
+    MK;   ;Kx.       cXMMMMMMMMMWO:,lONWMMMMMMMMWXkc,oXMMMMMMMMMWO'      .,O0'   cNM
+    Wd.  .xWNKO:    .kNWMMMMMMMMMMWWWMMMMMMMMMMMMMMWWWMMMMMMMMMWN0c     c0XWWd   .kM
+    N:   ;KMWMNc     ..,:ldk0XWMMMMMMMMMMMMMMMMMMMMMMMMMWNKOxoc;..      lNMWMK,   lW
+    0'   lWMMM0'            ..,lKMMMMMMMMMMMMMMMMMMMMMM0:'.             ,KMMMWc   ;X
+    k.  .xMMMMk.               ,KMMMMMMMMMMMMMMMMMMMMMMO.               .OMMMMo   '0
+    x.  .xMMMMk.               ,KMMMMMMMMMMMMMMMMMMMMMMO.               .OMWMMd   .O
+    k.  .xMMMMO.            .';oXMMMMMMMMMMMMMMMMMMMMMMKl;'.            ,KMMMWo   '0
+    0'   lWMMMX;     .';coxOKNWMMMMMMMMMMMMMMMMMMMMMMMMMMWNKOxoc;'.     cNMWMN:   ;X
+    N:   ,KMWN0:    .kNWMMMMMMMMMMNNWMMMMMMMMMMMMMMNXWMMMMMMMMMMWNx.    cKNWMO.   oW
+    Mx.   dNo..      cXMMMMMMMMMNx,.ckKWMMMMMMMMN0d;.:OWMMMMMMMMMK;      .'xNc   '0M
+    MX:   .Ox.        cXMMMMMMXx,     .:0MMMMMWk,.    .:OWMMMMMW0;        'Od.   oWM
+    MM0'   ,0d.        ;0WMMXd'        ;KMMMMMMO.       .:OWWWNx.        .kk.   :XMM
+    MMWk.   ,l.         .oOd'         .kWMMMMMMWl         .:kk:          'c.   ;KMMM
+    MMMWk.     ..                     cNMMMMMMMM0'                     '.     ;KMMMM
+    MMMMWO'    cOl.                  '0MMMMMMMMMWd.                  .dO:    :KMMMMM
+    MMMMMMK:    ,xk;..oko'           lNMMMMMMMMMW0,           ,xOl..cOx'   .dNMMMMMM
+    MMMMMMMNx'   .:kOKWMMXk:.        .,:ccllllc:;'.        .cONMMWKOx,    ;OWMMMMMMM
+    MMMMMMMMMKl.   .;kXMMMMWXkc,.                      .,lkXWMMMWXx,    'xNMMMMMMMMM
+    MMMMMMMMMMWKl.    'o0NMMMMMNKko'                ,okKWMMMMWXkc.    'dXMMMMMMMMMMM
+    MMMMMMMMMMMMWKo'    .,lkKWMMMMX:                cNMMMMNKxc'    .;xXMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMNkc'     .;lxOKKxc:;,'.    .',;:cxKKkdc,.    .,o0WMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMWNkl,.      .';:lood:   .cdool:;'.      .;o0NMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMWKxl;'.                        .':okXWMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMWNKkdoc:,'.........'';:loxOKWMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWWNXXKKKXXXNWWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    """.split("\n")
+
+    resistencia_lines = """
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWx'.;KMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWKl.   'dXMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMKo.       ,xNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWNWMMMMMMMMMWk.           ;KMMMMMMMMMMNNWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWKdd0WMMMMMMMMMM0,           cXMMMMMMMMMMNOdxXMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNx;'lKMMMMMMMXxd0WMO.         :XMNkoOWMMMMMMWO:'cONMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMXd' .xWMMMMMMNk,  .;kXl        .kXd,  .:0WMMMMMMXl..;kNMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMNx'  'OWMMMMMMNo.      cl.       ,d,      'kWMMMMMMNd.  ;OWMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMWO,   'OMMMMMMMMWKx:.                     'oOXWMMMMMMMWd.  .cKMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMNo.   .xWMMMMMMMMMMMWKc.                 'xNMMMMMMMMMMMMNl    'kWMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMK:     cNMMMMMMMMMMMMMMWO,              .lXMMMMMMMMMMMMMMMK,    .dNMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMK;     .kMMMMMMMMMMMMMMMMMX:            .dWMMMMMMMMMMMMMMMMWo     .oNMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMX:      ,KMMMMMMMMMMMMMMMMMMX;          .oWMMMMMMMMMMMMMMMMMMx.     .oWMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMNl       ;XMMMMMMMMMMMMMMMMMMMk.         :XMMMMMMMMMMMMMMMMMMMk.      .kMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMx.       ,KMMMMMMMMMMMMMMMMMMMNc        .xMMMMMMMMMMMMMMMMMMMMx.       ,KMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMX;        .kMMMMMMMMMMMMMMMMMMMMd        .OMMMMMMMMMMMMMMMMMMMWl         oWMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMk.         lNMMMMMMMMMMMMMMMMMMMd        '0MMMMMMMMMMMMMMMMMMM0'         ;XMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMWl          .xWMMMMMMMMMMMMMMMMMWo        .kMMMMMMMMMMMMMMMMMMNc          .kMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMN:           .OWMMMMMMMMMMMMMMMMX;         oWMMMMMMMMMMMMMMMMNo.          .dMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMX;            .xNMMMMMMMMMMMMMMWd.         '0MMMMMMMMMMMMMMMXc             dMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMX:              :OWMMMMMMMMMMMWx.           ,0MMMMMMMMMMMMNx'              dMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMWc               .;xKWMMMMMMWOc.             .oKWMMMMMWNOo'               .kMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMd                  .,:loooc,.                 .;coooc;.                  ,KMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMM0'                                                                       lWMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMNl                                                                      .OMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMM0'                                                                     oWMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMWx.                                                                   :XMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMWd.                                                                 ,KMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMWd.                                                               ;KMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMWk'                                                             :KMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMK:                                                          .dNMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMNx'                                                       :0WMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMXo.                                                   ,kNMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMXd'                                              .;kNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNx;.                                         .lONMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWKd;.                                   'ckXMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWXkl;.                          .':oONMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWXOxo:,'..           ..';cok0NWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWNXK0OOkkkkkOO0KXWWMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    """.split("\n")
+
+    for lines in [imperio_lines, resistencia_lines]:
+        while lines and lines[0].strip() == "":
+            lines.pop(0)
+        while lines and lines[-1].strip() == "":
+            lines.pop()
+
+    separador = "   "
+
+    largura_imperio = max(len(l) for l in imperio_lines)
+    largura_resistencia = max(len(l) for l in resistencia_lines)
+    largura_total = largura_imperio + len(separador) + largura_resistencia
+
+    cols_terminal = shutil.get_terminal_size().columns
+    recuo = max(0, (cols_terminal - largura_total) // 2)
+    margem = " " * recuo
+
+    num_linhas = max(len(imperio_lines), len(resistencia_lines))
+    imperio_lines += [""] * (num_linhas - len(imperio_lines))
+    resistencia_lines += [""] * (num_linhas - len(resistencia_lines))
+
+    for imp, res in zip(imperio_lines, resistencia_lines):
+        print(margem + imp.ljust(largura_imperio) + separador + res)

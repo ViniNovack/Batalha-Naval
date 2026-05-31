@@ -2,6 +2,11 @@ import funcoes
 import time
 import os
 import random
+import funcoes_imagens
+
+    # ff.centr('AGORA ESCOLHA UM LADO E DECIDA O DESTINO DESSA HISTÓRIA\n')
+    # time.sleep(1)
+    # ff.escudos_lado_a_lado()
 
 def humano_bot():
     MASCH = funcoes.matriz10()

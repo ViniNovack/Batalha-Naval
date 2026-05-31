@@ -26,8 +26,9 @@ def main():
     #     print()
 
     os.system('cls')
-    ff.centr('AGORA ESCOLHA UM LADO E DECIDA O DESTINO DESSA HISTÓRIA')
+    ff.centr('AGORA ESCOLHA UM LADO E DECIDA O DESTINO DESSA HISTÓRIA\n')
     time.sleep(1)
+    ff.escudos_lado_a_lado()
 
 
 
