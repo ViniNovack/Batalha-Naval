@@ -153,4 +153,6 @@ def humano_bot():
     else:
         print('PARABENS VOCE DESTRUIU COM OS PLANOS DO IMPARIO')
 
-humano_bot()
+
+if __name__ == '__main__':
+    humano_bot()

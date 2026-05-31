@@ -55,4 +55,5 @@ def humano_humano():
             continue
 
 
-humano_humano()
+if __name__ == '__main__':
+    humano_humano()
