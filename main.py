@@ -32,7 +32,7 @@ def main():
         print()
 
     os.system('cls')
-    ff.centr('PARA CONTINUAR ESSA HISTÓRIA, ESCOLHA UMA OPÇÃO DE JOGO, QUE DEFINIRÁ SEU DESTINO\n')
+    ff.centr('PARA CONTINUAR ESSA HISTÓRIA, ESCOLHA UMA OPÇÃO DE JOGO\n')
     time.sleep(1)
     
     ff.centr('  ___MENU___  ')
