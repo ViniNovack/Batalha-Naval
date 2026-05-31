@@ -1,5 +1,5 @@
 import random
-
+import shutil
 
 
 def matriz10():
@@ -180,3 +180,25 @@ def masc(M):
         for c in range(0, 10):
             print(f'[{M[l][c]}]', end='')
         print()
+
+
+
+def centr(texto):
+    largura_terminal = shutil.get_terminal_size().columns
+    linha_centralizada = texto.center(largura_terminal)
+    print(linha_centralizada)
+
+
+
+def verif_int(texto, n:int=0):
+    while True:
+        try:
+            x = int(input(f'{texto}'))
+            if x in range(1, n):
+                return x
+            else:
+                print('Resposta invalida!!, tente de novo')
+                continue
+        except:
+            print('Resposta invalida!!, tente de novo')
+            continue
