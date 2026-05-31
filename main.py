@@ -34,12 +34,12 @@ def main():
     os.system('cls')
     ff.centr('PARA CONTINUAR ESSA HISTÓRIA, ESCOLHA UMA OPÇÃO DE JOGO, QUE DEFINIRÁ SEU DESTINO\n')
     time.sleep(1)
-    pygame.mixer.music.stop()
     
     ff.centr('  ___MENU___  ')
     ff.centr('1. HUMANO X BOT')
     ff.centr('2. HUMANO X HUMANO')
     x = fu.verif_int('Digite sua opção de jogo: ', 3)
+    pygame.mixer.music.stop()
     if x == 1:
         os.system('cls')
         humano_bot.humano_bot()
