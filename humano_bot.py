@@ -1,6 +1,8 @@
 import funcoes
 import time
 import os
+import pygame
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 import random
 import funcoes_imagens
 import funcoes
@@ -20,9 +22,16 @@ def humano_bot():
 #______________________________________________________ABERTURA________________________________________________
     time.sleep(1)
     fu.texto_star_wars('AGORA ESCOLHA UM LADO E DECIDA O DESTINO DESSA HISTÓRIA\n')
+    
     time.sleep(1)
+    pygame.mixer.init()
+    pygame.mixer.music.load('Audio_-Star-Wars-Epic.ogg') 
+    pygame.mixer.music.play()
+   
     fi.escudos_lado_a_lado()
     opcao = fu.verif_int('» ', 3)
+    pygame.mixer.music.stop()
+
     if opcao == 1:
         pass
     elif opcao == 2:
