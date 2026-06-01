@@ -165,6 +165,56 @@ def verif_cordenada_Y(size):
             print('Resposta invalida, tente de novo')
             continue
 
+def incluirNaves(m):
+        showMatriz(m)
+        print("\nEssas são suas opcções de canhão:")
+    
+        cont = 0
+
+        while cont < 5:
+            print("-"*45)
+            show_armas()
+            print("-"*45)
+            print(f"Prepare seu campo de batalha selecionando e posicionando 5 canhões")
+            print("\nobs.: Você deverá posicionar pela ponta delas: ◀")
+
+            try:
+                n = int(input('Digite a númeração do canhão: '))
+            except:
+                print('Digite nova mente, houve um erro')
+                continue
+
+            if n in range(1, 4):
+                verf = False
+                match n:
+                    case 1:
+                        while verf == False:
+                            x = verif_cordenada_X(1)
+                            y = verif_cordenada_Y(0)
+                            verf = colocar_arma2(m, x, y)
+                            showMatriz(m)
+                        cont +=1
+                        
+                    case 2:
+                        while verf == False:
+                            x = verif_cordenada_X(2)
+                            y = verif_cordenada_Y(0)
+                            verf = colocar_arma3(m, x, y)
+                            showMatriz(m)
+                        cont +=1
+                        
+                    case 3:
+                        while verf == False:
+                            x = verif_cordenada_X(3)
+                            y = verif_cordenada_Y(1)
+                            verf = colocar_arma4(m, x, y)
+                            showMatriz(m)
+                        cont +=1
+                        
+            else:
+                print('Digite nova mente, houve um erro')
+                continue
+
 
 
 def jogadas_ataque(M, x, y, MM=0):
