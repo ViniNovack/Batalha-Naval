@@ -33,7 +33,23 @@ def humano_bot():
     pygame.mixer.music.stop()
 
     if opcao == 1:
-        pass
+        os.system('cls')
+        pygame.mixer.init()
+        pygame.mixer.music.load('Star-Wars-Imperial-March.ogg') 
+        pygame.mixer.music.play(-1)
+        fu.texto_star_wars_sem_musica("Você decidiu ser um comandante do grande e poderoso Império Galático")
+        fu.texto_star_wars_sem_musica("Assuma seu posto e extermine essa escória rebelde")
+        time.sleep(3)
+        os.system('cls')
+
+        #_____________________________________________JOGO____________________________________________
+
+
+    
+    
+    
+    
+    
     elif opcao == 2:
         pass
 

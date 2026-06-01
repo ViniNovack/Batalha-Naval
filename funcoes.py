@@ -607,5 +607,32 @@ def texto_star_wars(texto, nud=11, nur=61):
 
 
 
+def texto_star_wars_sem_musica(texto, nud=11, nur=61):
+    largura_terminal = shutil.get_terminal_size().columns
+    linha_centralizada = texto.center(largura_terminal)
+    x = 1
+    y = 0
+    for c in linha_centralizada:
+        if c == ' ':
+            print(c, end='', flush=True)
+        else:
+            if x == 1:
+                print(c,end='', flush=True)
+                time.sleep(0.2)
+                y +=1
+                if y == nud:
+                    y = 0
+                    x = 2
+            elif x == 2:
+                print(c,end='', flush=True)
+                time.sleep(0.02)
+                y +=1
+                if y == nur:
+                    y = 0
+                    x = 1
+    print()
+
+
+
 if __name__ == '__main__':
     pass
