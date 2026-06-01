@@ -10,6 +10,14 @@ fu = funcoes
 fi = funcoes_imagens
 
 
+class Cores:                              # Mensagemn de erro padrão: f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌'
+    # VERMELHO
+    vermelho = '\033[31m'
+    # LIMPAR
+    limpar = '\033[m'
+c1 = Cores()
+
+
 
 def humano_humano():
 
@@ -35,9 +43,9 @@ def humano_humano():
                 pygame.mixer.music.stop()
                 break
             else:
-                print("Opção inválida, selecione novamente")
+                print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
         except ValueError:
-            print("Opção inválida, selecione novamente")
+            print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
 
     if opcao == 1: #imperio
         os.system("cls")

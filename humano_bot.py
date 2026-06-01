@@ -68,7 +68,7 @@ def humano_bot():
             try:
                 n = int(input('Digite a númeração da nave: '))
             except:
-                print('Digite nova mente, houve um erro')
+                print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                 continue
 
             if n in range(1, 4):
@@ -99,7 +99,7 @@ def humano_bot():
                         cont +=1
                         vidaH +=4
             else:
-                print('Digite nova mente, houve um erro')
+                print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                 continue
         
         # ROBO
@@ -111,7 +111,7 @@ def humano_bot():
                 n = random.randrange(1, 4)
                 print(n)
             except:
-                print('Digite nova mente, houve um erro')
+                print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
             if n in range(1, 4):
                 verf = False
                 match n:
@@ -140,7 +140,7 @@ def humano_bot():
                         cont +=1
                         vida +=4
             else:
-                print('Digite nova mente, houve um erro')
+                print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                 continue
         
         # JOGO
