@@ -57,9 +57,11 @@ def humano_bot():
         funcoes.showMatriz(MH)
         cont = 0
         print()
-        fu.texto_star_wars_sem_musica("Você tem 3 opcções de arma:")
-        
+        fu.texto_star_wars_sem_musica("Você tem 3 opções de armas para posicionar estrategicamente para ELIMINAR os rebeldes invasores… PERMANENTEMENTE ")
+        time.sleep(1.5)
+
         while cont <= 5:
+            os.system('cls')
             print("-"*45)
             funcoes.show_armas()
             print("-"*45)
@@ -69,6 +71,7 @@ def humano_bot():
                 n = int(input('Digite a númeração da nave: '))
             except:
                 print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
+                time.sleep(0.5)
                 continue
 
             if n in range(1, 4):
@@ -80,6 +83,7 @@ def humano_bot():
                             y = funcoes.verif_cordenada_Y(0)
                             verf = funcoes.colocar_arma2(MH, x, y)
                             funcoes.showMatriz(MH)
+                            time.sleep(0.5)
                         cont +=1
                         vidaH += 2
                     case 2:
@@ -88,6 +92,7 @@ def humano_bot():
                             y = funcoes.verif_cordenada_Y(0)
                             verf = funcoes.colocar_arma3(MH, x, y)
                             funcoes.showMatriz(MH)
+                            time.sleep(0.5)
                         cont +=1
                         vidaH += 3
                     case 3:
@@ -96,10 +101,13 @@ def humano_bot():
                             y = funcoes.verif_cordenada_Y(1)
                             verf = funcoes.colocar_arma4(MH, x, y)
                             funcoes.showMatriz(MH)
+                            time.sleep(0.5)
                         cont +=1
                         vidaH +=4
+                time.sleep(0.5)
             else:
                 print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
+                time.sleep(0.5)
                 continue
         
         # ROBO
