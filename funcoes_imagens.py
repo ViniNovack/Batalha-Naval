@@ -2,6 +2,15 @@ import shutil
 import time
 
 
+class Cores:                              # Mensagemn de erro padrão: f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌'
+    # VERMELHO
+    vermelho = '\033[31m'
+    # LIMPAR
+    limpar = '\033[m'
+c1 = Cores()
+
+
+
 def titulo():
     titulo = ("""                                                                                                                                                                                                                            
                                                                                                                                                                                                                             

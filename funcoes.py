@@ -6,6 +6,15 @@ os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 import pygame
 
 
+class Cores:                              # Mensagemn de erro padrão: f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌'
+    # VERMELHO
+    vermelho = '\033[31m'
+    # LIMPAR
+    limpar = '\033[m'
+c1 = Cores()
+
+
+
 def matriz10():
     return [[0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0],
@@ -29,7 +38,7 @@ def arma2():
 
 def colocar_arma2(M, x, y):
     if (M[y][x] != 0 or M[y][x + 1] != 0):
-        print("A arma não pode sobrepor outra, tente de novo")
+        print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
         return False
     
     M[y][x] = "◀"
@@ -47,7 +56,7 @@ def arma3():
 
 def colocar_arma3(M, x, y):
     if (M[y][x] !=0 or M[y][x + 1] != 0 or M[y][x + 2] != 0):
-        print("A arma não pode sobrepor outra, tente de novo")
+        print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
         return False
     
     M[y][x] = "◀"
@@ -60,13 +69,13 @@ def colocar_arma3(M, x, y):
 def arma4():
     return [[0,0,0,0,0],
             [0,"◀","▩","▩",0],
-            [0,0,0,"▩",0]]
+            [0,0,"▩",0,0]]
 
 
 
 def colocar_arma4(M, x, y):
     if (M[y][x] != 0 or M[y][x + 1] != 0 or M[y][x + 2] !=0 or M[y + 1][x + 1] != 0):
-        print("A arma não pode sobrepor outra, tente de novo")
+        print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
         return False
     
     M[y][x] = "◀"
@@ -122,13 +131,13 @@ def verif_cordenada_X(size):
                 if x+size in range(0, 10):
                     return x
                 else:
-                    print('Resposta invalida, tente de novo')
+                    print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                     continue
             else:
-                print('Resposta invalida, tente de novo')
+                print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                 continue
         except:
-            print('Resposta invalida, tente de novo')
+            print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
             continue
                     
 
@@ -140,10 +149,10 @@ def verif_cordenada_XX():
             if x in range(0, 10):
                 return x
             else:
-                print('Resposta invalida, tente de novo')
+                print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                 continue
         except:
-            print('Resposta invalida, tente de novo')
+            print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
             continue
 
 
@@ -156,13 +165,13 @@ def verif_cordenada_Y(size):
                 if y+size in range (0,10):
                     return y
                 else:
-                    print('Resposta invalida, tente de novo')
+                    print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                     continue
             else:
-                print('Resposta invalida, tente de novo')
+                print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                 continue
         except:
-            print('Resposta invalida, tente de novo')
+            print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
             continue
 
 def incluirNaves(m):
@@ -181,7 +190,7 @@ def incluirNaves(m):
             try:
                 n = int(input('Digite a númeração do canhão: '))
             except:
-                print('Digite nova mente, houve um erro')
+                print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                 continue
 
             if n in range(1, 4):
@@ -567,10 +576,10 @@ def verif_int(texto, n:int=0):
             if x in range(1, n):
                 return x
             else:
-                print('Resposta invalida!!, tente de novo')
+                print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                 continue
         except:
-            print('Resposta invalida!!, tente de novo')
+            print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
             continue
 
 
@@ -632,6 +641,25 @@ def texto_star_wars_sem_musica(texto, nud=11, nur=61):
                     x = 1
     print()
 
+
+
+def showMatriz_nbidsfn(matriz):
+    print()
+
+    print("    ", end = "")
+    
+    for linha in range(len(matriz[0])):
+            print(linha, end=" ")
+
+    print()
+    print("   ", end = "")
+    print("—⊽"*len(matriz[0]) + "—")
+
+    x = 0
+    for i in matriz:
+        print(f"{x} ⊳ ", end = "")
+        print(*i)
+        x +=1
 
 
 if __name__ == '__main__':
