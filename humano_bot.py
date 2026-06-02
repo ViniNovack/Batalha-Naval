@@ -122,24 +122,25 @@ def humano_bot():
         pygame.mixer.music.stop()
         
         # ROBO
-        fu.texto_star_wars('REBELDES')
+        os.system('cls')
+        fu.texto_star_wars('REBELDES!!!')
         pygame.mixer.init()
         pygame.mixer.music.load('March-of-the-Resistance.ogg') 
         pygame.mixer.music.play(-1)
         time.sleep(2)
         os.system('cls')
-        fu.texto_star_wars_sem_musica('Estamos sob fogo pesado de um destróier estelar do império')
+        fu.texto_star_wars_sem_musica('Estamos sob fogo pesado de um destróier!!!')
         fu.texto_star_wars_sem_musica('Precisamos ganhar tempo para escapar do bloqueio estelar e entrar no hiperespaço')
-        time.sleep(2)
+        time.sleep(2.5)
         os.system('cls')
         fu.texto_star_wars_sem_musica('Redirecionem a energia dos escudos para os canhões e para os motores')
         fu.texto_star_wars_sem_musica('E mirem as armas para o destróier')
-        time.sleep(2)
+        time.sleep(2.5)
         os.system('cls')
         fu.texto_star_wars_sem_musica('PRECISAMOS CONTRA-ATACAR!!!')
-        time.sleep(2)
+        time.sleep(2.5)
         os.system('cls')
-
+        fi.dentro_da_nave_resistencia()
         cont = 0
         while cont < 5:
             try:
@@ -151,32 +152,37 @@ def humano_bot():
                 match n:
                     case 1:
                         while verf == False:
-                            x = random.randrange(0, 9)
-                            y = random.randrange(0, 9)
+                            x = random.randrange(0, 10)
+                            y = random.randrange(0, 10)
                             verf = funcoes.colocar_arma2(MR, x, y)
-                            funcoes.showMatriz(MR)
                         cont +=1
                         vidaR +=2
                     case 2:
                         while verf == False:
-                            x = random.randrange(0, 9)
-                            y = random.randrange(0, 9)
+                            x = random.randrange(0, 10)
+                            y = random.randrange(0, 10)
                             verf = funcoes.colocar_arma3(MR, x, y)
-                            funcoes.showMatriz(MR)
                         cont +=1
                         vidaR +=3
                     case 3:
                         while verf == False:
-                            x = random.randrange(0, 9)
-                            y = random.randrange(0, 9)
+                            x = random.randrange(0, 10)
+                            y = random.randrange(0, 10)
                             verf = funcoes.colocar_arma4(MR, x, y)
-                            funcoes.showMatriz(MR)
                         cont +=1
                         vida +=4
             else:
                 print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                 continue
-        
+        time.sleep(3)
+        os.system('cls')
+        fu.texto_star_wars_sem_musica('“Tudo pronto!!! Armas apostas e energia redirecionada”')
+        time.sleep(2.5)
+        os.system('cls')
+        fu.texto_star_wars_sem_musica('VAMOS FUGIR DAQUI !!!')
+
+
+
         # JOGO
         os.system('cls')
         print('O JOGO COMEÇOU'.center(30))
