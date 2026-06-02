@@ -119,17 +119,33 @@ def humano_bot():
         os.system('cls')
         fu.masc_imperio(1)
         time.sleep(3)
+        pygame.mixer.music.stop()
         
         # ROBO
-        funcoes.showMatriz(MR)
+        fu.texto_star_wars('REBELDES')
+        pygame.mixer.init()
+        pygame.mixer.music.load('March-of-the-Resistance.ogg') 
+        pygame.mixer.music.play(-1)
+        time.sleep(2)
+        os.system('cls')
+        fu.texto_star_wars_sem_musica('Estamos sob fogo pesado de um destróier estelar do império')
+        fu.texto_star_wars_sem_musica('Precisamos ganhar tempo para escapar do bloqueio estelar e entrar no hiperespaço')
+        time.sleep(2)
+        os.system('cls')
+        fu.texto_star_wars_sem_musica('Redirecionem a energia dos escudos para os canhões e para os motores')
+        fu.texto_star_wars_sem_musica('E mirem as armas para o destróier')
+        time.sleep(2)
+        os.system('cls')
+        fu.texto_star_wars_sem_musica('PRECISAMOS CONTRA-ATACAR!!!')
+        time.sleep(2)
+        os.system('cls')
+
         cont = 0
-        while cont <= 5:
+        while cont < 5:
             try:
-                print('Digite a númeração da nave: ', end='')
                 n = random.randrange(1, 4)
-                print(n)
             except:
-                print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
+                continue
             if n in range(1, 4):
                 verf = False
                 match n:
