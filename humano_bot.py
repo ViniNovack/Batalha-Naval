@@ -54,21 +54,21 @@ def humano_bot():
         #_____________________________________________JOGO____________________________________________
 
         # HUMANO
-        funcoes.showMatriz(MH)
         cont = 0
         print()
         fu.texto_star_wars_sem_musica("Você tem 3 opções de armas para posicionar estrategicamente para ELIMINAR os rebeldes invasores… PERMANENTEMENTE ")
-        time.sleep(1.5)
+        time.sleep(2.5)
 
-        while cont <= 5:
+        while cont < 5:
             os.system('cls')
+            funcoes.showMatriz(MH)
             print("-"*45)
             funcoes.show_armas()
             print("-"*45)
             print("\nobs.: Você deverá posicionar pela ponta delas: ◀")
 
             try:
-                n = int(input('Digite a númeração da nave: '))
+                n = int(input('Digite a númeração da arma: '))
             except:
                 print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                 time.sleep(0.5)
@@ -82,8 +82,6 @@ def humano_bot():
                             x = funcoes.verif_cordenada_X(1)
                             y = funcoes.verif_cordenada_Y(0)
                             verf = funcoes.colocar_arma2(MH, x, y)
-                            funcoes.showMatriz(MH)
-                            time.sleep(0.5)
                         cont +=1
                         vidaH += 2
                     case 2:
@@ -91,8 +89,6 @@ def humano_bot():
                             x = funcoes.verif_cordenada_X(2)
                             y = funcoes.verif_cordenada_Y(0)
                             verf = funcoes.colocar_arma3(MH, x, y)
-                            funcoes.showMatriz(MH)
-                            time.sleep(0.5)
                         cont +=1
                         vidaH += 3
                     case 3:
@@ -100,8 +96,6 @@ def humano_bot():
                             x = funcoes.verif_cordenada_X(3)
                             y = funcoes.verif_cordenada_Y(1)
                             verf = funcoes.colocar_arma4(MH, x, y)
-                            funcoes.showMatriz(MH)
-                            time.sleep(0.5)
                         cont +=1
                         vidaH +=4
                 time.sleep(0.5)
@@ -109,6 +103,22 @@ def humano_bot():
                 print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                 time.sleep(0.5)
                 continue
+        
+        os.system('cls')
+        pygame.mixer.music.stop()
+        pygame.mixer.init()
+        pygame.mixer.music.load('Star-Wars-Imperial-March.ogg') 
+        pygame.mixer.music.play(-1)
+        fu.texto_star_wars_sem_musica('Agora, com todos os canhões posicionados, podemos começar a atacar')
+        fu.texto_star_wars_sem_musica('Precisamos impedir que eles passem o bloqueio e entrem no hiperespaço')
+        time.sleep(2)
+        os.system('cls')
+        fu.texto_star_wars_sem_musica('“General!! Ligue o monitor da nave e vamos começar o ataque”')
+        fu.texto_star_wars_sem_musica('"Isso foi uma ORDEM!!"')
+        time.sleep(2)
+        os.system('cls')
+        fu.masc_imperio(1)
+        time.sleep(3)
         
         # ROBO
         funcoes.showMatriz(MR)
