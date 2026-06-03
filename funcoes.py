@@ -36,9 +36,10 @@ def arma2():
 
 
 
-def colocar_arma2(M, x, y):
+def colocar_arma2(M, x, y, f:float=True):
     if (M[y][x] != 0 or M[y][x + 1] != 0):
-        print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
+        if f == True:
+            print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
         return False
     
     M[y][x] = "◀"
@@ -54,9 +55,10 @@ def arma3():
 
 
 
-def colocar_arma3(M, x, y):
+def colocar_arma3(M, x, y, f:float=True):
     if (M[y][x] !=0 or M[y][x + 1] != 0 or M[y][x + 2] != 0):
-        print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
+        if f == True:
+            print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
         return False
     
     M[y][x] = "◀"
@@ -73,9 +75,10 @@ def arma4():
 
 
 
-def colocar_arma4(M, x, y):
+def colocar_arma4(M, x, y, f:float=True):
     if (M[y][x] != 0 or M[y][x + 1] != 0 or M[y][x + 2] !=0 or M[y + 1][x + 1] != 0):
-        print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
+        if f == True:
+            print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
         return False
     
     M[y][x] = "◀"
@@ -139,7 +142,7 @@ def verif_cordenada_X(size):
         except:
             print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
             continue
-                    
+         
 
 
 def verif_cordenada_XX():
@@ -662,6 +665,17 @@ def showMatriz_nbidsfn(matriz):
         print(f"{x} ⊳ ", end = "")
         print(*i)
         x +=1
+
+
+
+def coloca_X_robo():
+    pass
+
+
+
+def coloca_Y_robo():
+    pass
+
 
 
 if __name__ == '__main__':

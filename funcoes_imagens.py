@@ -65,12 +65,7 @@ def titulo():
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 """)
     largura_terminal = shutil.get_terminal_size().columns
     for linha in titulo.split('\n'):

@@ -154,30 +154,33 @@ def humano_bot():
                         while verf == False:
                             x = random.randrange(0, 10)
                             y = random.randrange(0, 10)
-                            verf = funcoes.colocar_arma2(MR, x, y)
+                            verf = funcoes.colocar_arma2(MR, x, y, False)
                         cont +=1
                         vidaR +=2
                     case 2:
                         while verf == False:
                             x = random.randrange(0, 10)
                             y = random.randrange(0, 10)
-                            verf = funcoes.colocar_arma3(MR, x, y)
+                            verf = funcoes.colocar_arma3(MR, x, y, False)
                         cont +=1
                         vidaR +=3
                     case 3:
                         while verf == False:
                             x = random.randrange(0, 10)
-                            y = random.randrange(0, 10)
-                            verf = funcoes.colocar_arma4(MR, x, y)
+                            y = random.randrange(0, 9)
+                            verf = funcoes.colocar_arma4(MR, x, y, False)
                         cont +=1
-                        vida +=4
+                        vidaR +=4
             else:
                 continue
-        
+    
         time.sleep(3)
         os.system('cls')
         fu.texto_star_wars_sem_musica('“Tudo pronto!!! Armas apostas e energia redirecionada”')
-        time.sleep(2.5)
+        time.sleep(3)
+        os.system('cls')
+        fu.masc_resistencia(1)
+        time.sleep(3)
         os.system('cls')
         fu.texto_star_wars_sem_musica('VAMOS FUGIR DAQUI !!!')
         time.sleep(2.5)
