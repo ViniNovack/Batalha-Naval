@@ -124,6 +124,8 @@ def showMatriz(matriz):
         print(*i)
         x +=1
 
+
+
 def showFields(ma,mb, vidaA, vidaB):
 
     # -- mostra o titulo ----------
@@ -183,7 +185,8 @@ def showFields(ma,mb, vidaA, vidaB):
     print(f"Vida: {vidaB}")
 
     # ---------------------------
-            
+
+
 
 def verif_cordenada_X(size):
     while True:
@@ -201,7 +204,7 @@ def verif_cordenada_X(size):
         except:
             print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
             continue
-         
+
 
 
 def verif_cordenada(sentido):
@@ -216,6 +219,7 @@ def verif_cordenada(sentido):
         except:
             print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
             continue
+
 
 
 def verif_cordenada_Y(size):
@@ -263,7 +267,6 @@ def incluirNaves(m):
                     case 1:
                         while verf == False:
                             
-                            print()
                             x = verif_cordenada_X(1)
                             y = verif_cordenada_Y(0)
                             verf = colocar_arma2(m, x, y)
@@ -292,8 +295,9 @@ def incluirNaves(m):
                 time.sleep(1)
                 os.system("cls")
                 continue
-        
         return vida
+
+
 
 def atacar(x,y, m, mAttack):
 
@@ -303,6 +307,7 @@ def atacar(x,y, m, mAttack):
     else:
         mAttack[y][x] = '🌟'
         return False
+
 
 
 def jogadasAtaque(mAttack, m, vida):
@@ -319,11 +324,6 @@ def jogadasAtaque(mAttack, m, vida):
             
         except ValueError:
             print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
-    
-
-
-
-
 
 
 
@@ -761,16 +761,6 @@ def showMatriz_nbidsfn(matriz):
         print(f"{x} ⊳ ", end = "")
         print(*i)
         x +=1
-
-
-
-def coloca_X_robo():
-    pass
-
-
-
-def coloca_Y_robo():
-    pass
 
 
 

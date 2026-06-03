@@ -420,4 +420,4 @@ def imagem_texto_batalha():
 
 
 if __name__ == '__main__':
-    imagem_texto_batalha()
+    pass

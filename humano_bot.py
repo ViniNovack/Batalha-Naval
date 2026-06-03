@@ -150,10 +150,9 @@ def humano_bot():
         os.system('cls')
 
         resul = False
-
         while vidaH != 0 or vidaR != 0:
             os.system('cls')
-            print('Espaço da Resistencia'.center(10))
+            
             funcoes.masc(MASCH)
             print()
             print('Espaço do Imperio'.center(10))
@@ -193,9 +192,9 @@ def humano_bot():
 
     
     
-    
-    
-    
+
+
+
     elif opcao == 2:
         pass
 
