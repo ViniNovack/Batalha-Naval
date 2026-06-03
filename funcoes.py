@@ -174,6 +174,8 @@ def verif_cordenada_Y(size):
             print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
             continue
 
+
+
 def incluirNaves(m):
         showMatriz(m)
         print("\nEssas são suas opcções de canhão:")

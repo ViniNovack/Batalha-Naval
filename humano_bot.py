@@ -172,21 +172,24 @@ def humano_bot():
                         cont +=1
                         vida +=4
             else:
-                print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                 continue
+        
         time.sleep(3)
         os.system('cls')
         fu.texto_star_wars_sem_musica('“Tudo pronto!!! Armas apostas e energia redirecionada”')
         time.sleep(2.5)
         os.system('cls')
         fu.texto_star_wars_sem_musica('VAMOS FUGIR DAQUI !!!')
-
+        time.sleep(2.5)
+        pygame.mixer.music.stop()
+        os.system('cls')
 
 
         # JOGO
+        fi.imagem_texto_batalha()
+        time.sleep(2.5)
         os.system('cls')
-        print('O JOGO COMEÇOU'.center(30))
-        print()
+
         resul = False
 
         while vidaH != 0 or vidaR != 0:

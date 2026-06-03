@@ -1,6 +1,8 @@
 import shutil
 import time
-
+import os
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
+import pygame
 
 class Cores:                              # Mensagemn de erro padrão: f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌'
     # VERMELHO
@@ -393,8 +395,8 @@ def dentro_da_nave_resistencia():
 
 
 def imagem_texto_batalha():
-    texto = """
-                                                                                                                         
+    
+    texto = """                                                                             
           ..............       ........   ................   ..........     ......       ......   ......    .........             
          .,'............'.    ''......',..,..............,. ',........,.   .;...,'      .,...,'  .,'...,.  .,.......,.            
          .,.   ......   .,.  .'   .'   ''.,'....    .....,..,.  .;'   .'   .'   .'      .'   .'  .,.  .'.  ,.  .'.  .,.           
@@ -404,13 +406,21 @@ def imagem_texto_batalha():
          .'.   ......    .;,.   ......   .,.   '.  .,.   '.   .......   .,..'    ......'c,   .'  .,.  .,;'   .......   .'         
          .,'.............';;...',....',...,,   ,,...;.  ';...',.   .',...,,',..........'c:...,'  .,,...cl'...,'.  .,....;.        
           ..............  ......      ......   ......   ......       ..........................   ............     .......        
-                                                                                                                  
+                                                                                
     """
+    pygame.mixer.init()
+    pygame.mixer.music.load('Star-Wars-Imperial-March.ogg') 
+    pygame.mixer.music.play()
+
     largura_terminal = shutil.get_terminal_size().columns
     for linha in texto.split('\n'):
-        # Centraliza a linha de acordo com o tamanho do terminal
         linha_centralizada = linha.center(largura_terminal)
-        print(linha_centralizada)
+        for c in linha_centralizada:
+            print(c, end='', flush=True)
+            time.sleep(0.009)
+        print()
+
+    pygame.mixer.music.stop()
 
 
 
