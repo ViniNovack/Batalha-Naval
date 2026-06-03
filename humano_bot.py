@@ -149,9 +149,11 @@ def humano_bot():
         time.sleep(2.5)
         os.system('cls')
 
+        cont = 0
         resul = False
         while vidaH != 0 or vidaR != 0:
-            os.system('cls')
+            if cont == 0:
+                pass
             
             funcoes.masc(MASCH)
             print()
