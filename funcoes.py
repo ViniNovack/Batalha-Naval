@@ -124,12 +124,71 @@ def showMatriz(matriz):
         print(*i)
         x +=1
 
+def showFields(ma,mb, vidaA, vidaB):
 
+    # -- mostra o titulo ----------
+
+    print(" "*10, end = "") # recuo
+    print(f"IMPERIO", end="")
+
+    print(" "*25, end="") #espaço do meio
+
+    print(f"RESISTENCIA")
+
+    # ---------------------------
+
+    print()
+
+    # -- mostra matrizes com coordenadas --
+
+    print(" "*4, end = "")
+    
+    for coluna in range(10):
+        print(coluna, end=" ")
+
+    print(" "*10, end="") #espaço do meio
+    print(" "*3, end = "") # recuo
+
+
+    for coluna in range(10):
+        print(coluna, end=" ")
+
+    print()
+    print(" "*3, end = "") # recuo
+    print("—⊽"*10 + "—", end="")
+
+    print(" "*10, end="") #espaço do meio
+    print(" "*2, end = "") # recuo
+
+    print("—⊽"*10 + "—")
+
+
+
+    for i in range(10):
+        print(f"{i} ⊳ ", end = "")
+        print(*ma[i], end = "")
+        print(" "*10, end="") #espaço do meio
+        print(f"{i} ⊳ ", end = "")
+        print(*mb[i])
+
+    # ---------------------------
+
+    # -- mostra a vida ----------
+    print()
+
+    print(f"Vida: {vidaA}", end="")
+
+    print(" "*25, end="") #espaço do meio
+
+    print(f"Vida: {vidaB}")
+
+    # ---------------------------
+            
 
 def verif_cordenada_X(size):
     while True:
         try:
-            x = int(input('Digite a cordenada X: '))
+            x = int(input('Digite a coluna: '))
             if x in range(0, 10):
                 if x+size in range(0, 10):
                     return x
@@ -145,10 +204,10 @@ def verif_cordenada_X(size):
          
 
 
-def verif_cordenada_XX():
+def verif_cordenada(sentido):
     while True:
         try:
-            x = int(input('Digite a cordenada X: '))
+            x = int(input(f'Digite a {sentido}: '))
             if x in range(0, 10):
                 return x
             else:
@@ -159,11 +218,10 @@ def verif_cordenada_XX():
             continue
 
 
-
 def verif_cordenada_Y(size):
     while True:
         try:
-            y = int(input('Digite a cordenada Y: '))
+            y = int(input('Digite a linha: '))
             if y in range(0, 10):
                 if y+size in range (0,10):
                     return y
@@ -180,22 +238,23 @@ def verif_cordenada_Y(size):
 
 
 def incluirNaves(m):
-        showMatriz(m)
-        print("\nEssas são suas opcções de canhão:")
-    
         cont = 0
+        vida = 0
 
         while cont < 5:
+            showMatriz(m)
+            print("\nEssas são suas opcções de canhão:")
             print("-"*45)
             show_armas()
             print("-"*45)
-            print(f"Prepare seu campo de batalha selecionando e posicionando 5 canhões")
             print("\nobs.: Você deverá posicionar pela ponta delas: ◀")
 
             try:
                 n = int(input('Digite a númeração do canhão: '))
             except:
                 print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
+                time.sleep(1)
+                os.system("cls")
                 continue
 
             if n in range(1, 4):
@@ -203,31 +262,68 @@ def incluirNaves(m):
                 match n:
                     case 1:
                         while verf == False:
+                            
+                            print()
                             x = verif_cordenada_X(1)
                             y = verif_cordenada_Y(0)
                             verf = colocar_arma2(m, x, y)
-                            showMatriz(m)
+                            
                         cont +=1
-                        
+                        vida += 2
                     case 2:
                         while verf == False:
+                            
                             x = verif_cordenada_X(2)
                             y = verif_cordenada_Y(0)
                             verf = colocar_arma3(m, x, y)
-                            showMatriz(m)
                         cont +=1
-                        
+                        vida += 3
                     case 3:
                         while verf == False:
+                            
                             x = verif_cordenada_X(3)
                             y = verif_cordenada_Y(1)
                             verf = colocar_arma4(m, x, y)
-                            showMatriz(m)
                         cont +=1
-                        
+                        vida += 4
+                os.system("cls")      
             else:
-                print('Digite nova mente, houve um erro')
+                print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
+                time.sleep(1)
+                os.system("cls")
                 continue
+        
+        return vida
+
+def atacar(x,y, m, mAttack):
+
+    if(m[y][x] != 0):
+        mAttack[y][x] = '💥'
+        return True
+    else:
+        mAttack[y][x] = '🌟'
+        return False
+
+
+def jogadasAtaque(mAttack, m, vida):
+    while True:
+        try:
+            x = verif_cordenada('coluna')
+            y = verif_cordenada('linha')
+            if(mAttack[y][x] != 0):
+                print(f'❌{c1.vermelho} Você já tentou aí! É ASSIM QUE QUER VENCER? {c1.limpar}❌')
+            else:
+                if (atacar(x,y,m,mAttack)):
+                    vida -= 1
+                return vida
+            
+        except ValueError:
+            print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
+    
+
+
+
+
 
 
 
