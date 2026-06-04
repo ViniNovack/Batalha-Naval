@@ -300,7 +300,6 @@ def incluirNaves(m):
 
 
 def atacar(x,y, m, mAttack):
-
     if(m[y][x] != 0):
         mAttack[y][x] = '💥'
         return True
@@ -327,15 +326,78 @@ def jogadasAtaque(mAttack, m, vida):
 
 
 
-def jogadas_ataque(M, x, y, MM=0):
-    if M[x][y] == "◀" or M[x][y] == "▩":
-        M[x][y] = '💥'
-        MM[x][y] = '💥'
-        return True
-    else:
-        M[x][y] = '🌟'
-        MM[x][y] = '🌟'
-        return False
+def falas_do_imperio(parametro):
+    y = ''
+    if parametro == 1:     #QUANDO ERRAR
+        x = random.randrange(1, 4)
+        match x:
+            case 1:
+                y = 'Tiro perdido. Inaceitável. O Império exige perfeição.'
+            case 2:
+                y = 'Os rebeldes são escorregadios… mas a sorte deles tem um fim.'
+            case 3:
+                y = 'Ajustem as miras! Não desperdicem munição imperial!'
+        return y
+    elif parametro == 2:   #QUANDO ACERTAR
+        x = random.randrange(1, 5)
+        match x:
+            case 1:
+                y = 'Impacto confirmado. Mais um fragmento da nave foi destruído. '
+            case 2:
+                y = 'Os rebeldes pagam o preço de desafiar o Imperador.'
+            case 3:
+                y = 'Fogo certeiro! A galáxia logo voltará à ordem imperial.'
+            case 4:
+                y = 'O Império não tolera rebeldes!!'
+        return y
+
+
+
+def falas_da_resistencia(parametro):
+    y = ''
+    if parametro == 1:     #QUANDO ERRAR
+        x = random.randrange(1, 4)
+        match x:
+            case 1:
+                y = 'Errou! As interferências imperiais estão nos cegando!'
+            case 2:
+                y = 'Nada! O Império tem escudos de interferência… mas nós vamos contornar isso.'
+            case 3:
+                y = 'Os sensores estão com falha. Ajustem as frequências!'
+    elif parametro == 2:   #QUANDO ACERTAR
+        x = random.randrange(1, 5)
+        match x:
+            case 1:
+                y = 'Impacto direto! Os sistemas imperiais começam a falhar!'
+            case 2:
+                y = 'Atingido! O sinal do inimigo está ficando mais claro para os nossos sensores!'
+            case 3:
+                y = 'Boa mira, soldado! Estou sentindo a esperança crescer!'
+            case 4:
+                y = 'Escudo imperial comprometido! Continuem atirando!'
+    return y
+
+
+
+def jogadas_ataque(M, x, y, parametro):
+    pygame.mixer.init()
+    pygame.mixer.music.load('tiro.ogg') 
+    pygame.mixer.music.play()
+    time.sleep(1)
+    if parametro == 1:              #IMPERIO
+        if M[x][y] == "◀" or M[x][y] == "▩":
+            pygame.mixer.init()
+            pygame.mixer.music.load('explosao.ogg') 
+            pygame.mixer.music.play()
+            M[x][y] = '💥'
+            texto_star_wars(falas_do_imperio(2))
+            return True
+        else:
+            M[x][y] = '🌌'
+            texto_star_wars(falas_do_imperio(1))
+            return False
+    elif parametro == 2:            #RESISTENCIA
+        pass
 
 
 
@@ -764,26 +826,26 @@ def showMatriz_nbidsfn(matriz):
 
 
 
-def mostrar_nave(n, v, paramet):
-    if n == 1:               #RESISTENCIA
+def mostrar_nave(nave, vida, paramet):
+    if nave == 1:               #RESISTENCIA
         x = 0
-        if (paramet * 4) >= v > (paramet * 3):
+        if (paramet * 4) >= vida > (paramet * 3):
             x = 1
-        elif (paramet * 3) >= v > (paramet * 2):
+        elif (paramet * 3) >= vida > (paramet * 2):
             x = 2
-        elif (paramet * 2) >= v > (paramet * 1):
+        elif (paramet * 2) >= vida > (paramet * 1):
             x = 3
         else:
             x = 4
         masc_resistencia(x)
 
-    elif n == 2:             #IMPERIO
+    elif nave == 2:             #IMPERIO
         x = 0
-        if (paramet * 4) >= v > (paramet * 3):
+        if (paramet * 4) >= vida > (paramet * 3):
             x = 1
-        elif (paramet * 3) >= v > (paramet * 2):
+        elif (paramet * 3) >= vida > (paramet * 2):
             x = 2
-        elif (paramet * 2) >= v > (paramet * 1):
+        elif (paramet * 2) >= vida > (paramet * 1):
             x = 3
         else:
             x = 4

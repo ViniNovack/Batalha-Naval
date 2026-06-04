@@ -21,8 +21,6 @@ c1 = Cores()
 
 
 def humano_bot():
-    MASCH = funcoes.matriz10()
-    MASCR = funcoes.matriz10()
     mH = funcoes.matriz10()
     mR = funcoes.matriz10()
 
@@ -155,25 +153,23 @@ def humano_bot():
 
         cont = 0
         resul = False
-        parametH = vidaH / 4
-        parametR = vidaR / 4
+        parametH = round(vidaH / 4)      #"round" aredonda o valor numérico
+        parametR = round(vidaR / 4)
         
         while vidaH != 0 or vidaR != 0:
             if cont == 0:
                 fu.texto_star_wars_sem_musica("Faça sua primeira jogada nessa história…")
-            
-            fu.masc_imperio(1)
-            print()
-            print('Espaço do Imperio'.center(10))
-            funcoes.masc(MASCR)
-            print()
-            
+                time.sleep(2.5)
+                os.system('cls')
+                fu.texto_star_wars('Nave rebelde identificada')
+                fu.mostrar_nave(2, vidaH, parametH)
+                fu.texto_star_wars('ATAQUEM')
+
+
             # JOGADAS
-            os.system('cls')
-            print('Faça seu ataque')
             x = funcoes.verif_cordenada_XX()
             y = funcoes.verif_cordenada_Y()
-            resul = funcoes.jogadas_ataque(mR, x, y, MASCR)
+            resul = fu.jogadas_ataque(mR, x, y)
             funcoes.masc(MASCR)
             if resul == True:
                 print('Você ACERTOU')
@@ -192,7 +188,8 @@ def humano_bot():
                 vidaH -=1
             else:
                 print('EU ERREI')
-        
+            cont +=1
+
         # FIM
         if vidaH == 0:
             print('VOCÊ DEIXOU O IMPERIO VENCER')

@@ -551,4 +551,4 @@ def comandante_imperial():
 
 
 if __name__ == '__main__':
-    comandante_imperial()
+    pass
