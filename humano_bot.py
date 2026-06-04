@@ -169,7 +169,9 @@ def humano_bot():
             y = funcoes.verif_cordenada(y)
             time.sleep(0.5)
             os.system('cls')
+            pygame.mixer.music.pause()
             resul = fu.jogadas_ataque(mR, x, y, 1)
+            pygame.mixer.music.unpause()
             fu.showMatriz(mR)
             time.sleep(2)
             os.system('cls')
@@ -177,50 +179,52 @@ def humano_bot():
             if resul == True:
                 vidaR -=1
                 if (parametR * 4) >= vidaR > (parametR * 3):
-                    fu.texto_star_wars('REBELDES...')
-                    fu.texto_star_wars('Eles nos acertaram, mas os escudos estão aguentando por enquanto')
-                    fu.texto_star_wars('Se mantenham firmes na trajetória, precisamos quebrar o bloqueio')
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('Eles nos acertaram, mas os escudos estão aguentando por enquanto')
+                    fu.texto_star_wars_sem_musica('Se mantenham firmes na trajetória, precisamos quebrar o bloqueio')
                 elif (parametR * 3) >= vidaR > (parametR * 2):
-                    fu.texto_star_wars('REBELDES...')
-                    fu.texto_star_wars('Os escudos foram avariados!! Fomos atingidos!! Nosso bico dianteiro está comprometendo a estabilidade da nave…')
-                    fu.texto_star_wars('Redirecionem a energia dos propulsores para os escudos, precisamos estar vivos para fugir!')
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('Os escudos foram avariados!! Fomos atingidos!! Nosso bico dianteiro está comprometendo a estabilidade da nave…')
+                    fu.texto_star_wars_sem_musica('Redirecionem a energia dos propulsores para os escudos, precisamos estar vivos para fugir!')
                 elif (parametR * 2) >= vidaR > (parametR * 1):
-                    fu.texto_star_wars('REBELDES...')
-                    fu.texto_star_wars('OS ESCUDOS CAÍRAM!! Perdemos todo o nosso bico dianteiro e nossa estabilidade junto')
-                    fu.texto_star_wars('REDIRECIONEM TODA A ENERGIA PARA OS PROPULSORES E ARMAS, VAMOS GANHAR TEMPO!!!')
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('OS ESCUDOS CAÍRAM!! Perdemos todo o nosso bico dianteiro e nossa estabilidade junto')
+                    fu.texto_star_wars_sem_musica('REDIRECIONEM TODA A ENERGIA PARA OS PROPULSORES E ARMAS, VAMOS GANHAR TEMPO!!!')
                 elif (parametR * 1) > vidaR:
-                    fu.texto_star_wars('REBELDES...')
-                    fu.texto_star_wars('A nave está totalmente comprometida, além do nosso bico, um dos nossos motores foi totalmente destruído.')
-                    fu.texto_star_wars('Vamos manter a esperança…')
-                    fu.texto_star_wars('POTÊNCIA MÁXIMA, ESTAMOS QUASE LÁ!!!')
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('A nave está totalmente comprometida, além do nosso bico, um dos nossos motores foi totalmente destruído.')
+                    fu.texto_star_wars_sem_musica('Vamos manter a esperança…')
+                    fu.texto_star_wars_sem_musica('POTÊNCIA MÁXIMA, ESTAMOS QUASE LÁ!!!')
                 time.sleep(2)
                 os.system('cls')
             elif resul == False:
                 if (parametR * 4) >= vidaR > (parametR * 3):
-                    fu.texto_star_wars('REBELDES...')
-                    fu.texto_star_wars('Estamos indo bem!!!')
-                    fu.texto_star_wars('O império ainda não nos reconheceu totalmente')
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('Estamos indo bem!!!')
+                    fu.texto_star_wars_sem_musica('O império ainda não nos reconheceu totalmente')
                 elif (parametR * 3) >= vidaR > (parametR * 2):
-                    fu.texto_star_wars('REBELDES...')
-                    fu.texto_star_wars('O IMPÉRIO JÁ NOS RECONHECEU!!')
-                    fu.texto_star_wars('Mas estamos bem, mantenha o curso!')
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('O IMPÉRIO JÁ NOS RECONHECEU!!')
+                    fu.texto_star_wars_sem_musica('Mas estamos bem, mantenha o curso!')
                 elif (parametR * 2) >= vidaR > (parametR * 1):
-                    fu.texto_star_wars('REBELDES...')
-                    fu.texto_star_wars('ESSA FOI QUASE!!')
-                    fu.texto_star_wars('Não podemos mais levar danos, MANTENHAM O FOCO!!')
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('ESSA FOI QUASE!!')
+                    fu.texto_star_wars_sem_musica('Não podemos mais levar danos, MANTENHAM O FOCO!!')
                 elif (parametR * 1) > vidaR:
-                    fu.texto_star_wars('REBELDES...')
-                    fu.texto_star_wars('É questão de tempo…')
-                    fu.texto_star_wars('Não temos mais escudos e um dos motores está totalmente destruído. O que nos resta é resistir…')
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('É questão de tempo…')
+                    fu.texto_star_wars_sem_musica('Não temos mais escudos e um dos motores está totalmente destruído. O que nos resta é resistir…')
                 time.sleep(2)
                 os.system('cls')
 
 
             os.system('cls')
-            print('Minha vez')
+            fu.texto_star_wars_sem_musica('')
             x = random.randrange(0, 10)
             y = random.randrange(0, 10)
+            pygame.mixer.music.pause()
             resul = funcoes.jogadas_ataque(mH, x, y, MASCH)
+            pygame.mixer.music.unpause()
             funcoes.masc(MASCH)
             if resul == True:
                 print('Eu ACERTEI')
@@ -231,9 +235,9 @@ def humano_bot():
 
         # FIM
         if vidaH == 0:
-            print('VOCÊ DEIXOU O IMPERIO VENCER')
-        else:
-            print('PARABENS VOCE DESTRUIU COM OS PLANOS DO IMPARIO')
+            return 1   #IMPERIO VENCEU
+        elif vidaR == 0:
+            return 2 #RESISTENCIA VENCEU
 
     
     
