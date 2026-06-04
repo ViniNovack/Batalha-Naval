@@ -210,7 +210,7 @@ def verif_cordenada_X(size):
 def verif_cordenada(sentido):
     while True:
         try:
-            x = int(input(f'Digite a {sentido}: '))
+            x = int(input(f'Digite a linha {sentido}: '))
             if x in range(0, 10):
                 return x
             else:

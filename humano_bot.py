@@ -38,7 +38,7 @@ def humano_bot():
     fi.escudos_lado_a_lado()
     opcao = fu.verif_int('» ', 3)
     pygame.mixer.music.stop()
-
+#________________________________________________________________ESCOLHA DE SER O IMPERIO_____________________________________________________
     if opcao == 1:
         os.system('cls')
         pygame.mixer.init()
@@ -68,6 +68,7 @@ def humano_bot():
         fu.texto_star_wars_sem_musica('Precisamos impedir que eles passem o bloqueio e entrem no hiperespaço')
         time.sleep(2)
         os.system('cls')
+        fi.comandante_imperial()
         fu.texto_star_wars_sem_musica('“General!! Ligue o monitor da nave e vamos começar o ataque”')
         fu.texto_star_wars_sem_musica('"Isso foi uma ORDEM!!"')
         time.sleep(2)
@@ -99,7 +100,6 @@ def humano_bot():
         cont = 0
         while cont < 5:
             n = random.randrange(1, 4)
- 
             if n in range(1, 4):
                 verf = False
                 match n:
@@ -107,7 +107,6 @@ def humano_bot():
                         while verf == False:
                             x = random.randrange(0, 9) 
                             y = random.randrange(0, 10)
-
                             verf = funcoes.colocar_arma2(mR, x, y, False)
                         cont +=1
                         vidaR +=2
@@ -127,7 +126,7 @@ def humano_bot():
                         vidaR +=4
             else:
                 continue
-    
+
         time.sleep(3)
         os.system('cls')
         fu.texto_star_wars_sem_musica('“Tudo pronto!!! Armas apostas e energia redirecionada”')
@@ -144,7 +143,6 @@ def humano_bot():
 
         # JOGO
         fi.imagem_texto_batalha()
-        time.sleep(2.5)
         os.system('cls')
 
         pygame.mixer.init()
@@ -161,15 +159,14 @@ def humano_bot():
                 fu.texto_star_wars_sem_musica("Faça sua primeira jogada nessa história…")
                 time.sleep(2.5)
                 os.system('cls')
-                fu.texto_star_wars('Nave rebelde identificada')
+                fu.texto_star_wars_sem_musica('Nave rebelde identificada')
                 fu.mostrar_nave(1, vidaR, parametR)
-                fu.texto_star_wars('ATAQUEM...')
-
+                fu.texto_star_wars_sem_musica('ATAQUEM...')
 
             # JOGADAS
             fu.showMatriz(mR)
-            x = funcoes.verif_cordenada_XX()
-            y = funcoes.verif_cordenada_Y()
+            x = funcoes.verif_cordenada(x)
+            y = funcoes.verif_cordenada(y)
             resul = fu.jogadas_ataque(mR, x, y, 1)
             time.sleep(0.5)
             os.system('cls')
@@ -178,9 +175,16 @@ def humano_bot():
             os.system('cls')
 
             if resul == True:
-                print('Você ACERTOU')
                 vidaR -=1
-            else:
+                if (parametR * 4) >= vidaR > (parametR * 3):
+                    pass
+                elif (parametR * 3) >= vidaR > (parametR * 2):
+                    pass
+                elif (parametR * 2) >= vidaR > (parametR * 1):
+                    pass
+                elif (parametR * 1) > vidaR:
+                    pass
+            elif resul == False:
                 print('Você ERROU')
 
             os.system('cls')
@@ -206,7 +210,7 @@ def humano_bot():
     
 
 
-
+#__________________________________________________________ESCOLHA DE SER DA RESISTENCIA______________________________________
     elif opcao == 2:
         pass
 
