@@ -103,6 +103,18 @@ def show_armas():
         print("        ", end = "")
         print(*grade4[i], end = "")
         print()
+    print('▾▾▾▾▾▾▾▾▾', end='')
+    print('        ', end='')
+    print('▾▾▾▾▾▾▾▾▾', end='')
+    print('        ', end='')
+    print('▾▾▾▾▾▾▾▾▾', end='')
+    print()
+
+    print('Vida +=2', end='')
+    print("         ", end = "")
+    print('Vida +=3', end='')
+    print("         ", end = "")
+    print('Vida +=4', end='')
 
 
 
@@ -242,17 +254,17 @@ def verif_cordenada_Y(size):
 
 
 def incluirNaves(m):
-        cont = 0
         vida = 0
-
-        while cont < 5:
+        while vida < 15 or vida > 15:
             showMatriz(m)
-            print("\nEssas são suas opcções de canhão:")
+            print("\nEssas são suas opcções de canhões:")
             print("-"*45)
             show_armas()
             print("-"*45)
-            print("\nobs.: Você deverá posicionar pela ponta delas: ◀")
-
+            print("\nobs.: Você deverá posicionar pela ponta delas: ◀" \
+            "Você precisa bater um limite mínimo de 15 pontos de vida para poder jogar, então administre com sabedoria as armas que usará.")
+            print(f'Vida atual = {vida}')
+            
             try:
                 n = int(input('Digite a númeração do canhão: '))
             except:
@@ -266,34 +278,33 @@ def incluirNaves(m):
                 match n:
                     case 1:
                         while verf == False:
-                            
                             x = verif_cordenada_X(1)
                             y = verif_cordenada_Y(0)
                             verf = colocar_arma2(m, x, y)
-                            
-                        cont +=1
                         vida += 2
                     case 2:
                         while verf == False:
-                            
                             x = verif_cordenada_X(2)
                             y = verif_cordenada_Y(0)
                             verf = colocar_arma3(m, x, y)
-                        cont +=1
                         vida += 3
                     case 3:
                         while verf == False:
-                            
                             x = verif_cordenada_X(3)
                             y = verif_cordenada_Y(1)
                             verf = colocar_arma4(m, x, y)
-                        cont +=1
                         vida += 4
                 os.system("cls")      
             else:
                 print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                 time.sleep(1)
                 os.system("cls")
+                continue
+            if vida > 15:
+                print(f'❌{c1.vermelho}A sua vida ultrapassou 15, que é o limite. Reposicione, por gentileza, seus canhões.{c1.limpar}❌')
+                time.sleep(1)
+                os.system("cls")
+                vida = 0
                 continue
         return vida
 
