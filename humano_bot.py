@@ -167,9 +167,9 @@ def humano_bot():
             fu.showMatriz(mR)
             x = funcoes.verif_cordenada(x)
             y = funcoes.verif_cordenada(y)
-            resul = fu.jogadas_ataque(mR, x, y, 1)
             time.sleep(0.5)
             os.system('cls')
+            resul = fu.jogadas_ataque(mR, x, y, 1)
             fu.showMatriz(mR)
             time.sleep(2)
             os.system('cls')
@@ -177,15 +177,44 @@ def humano_bot():
             if resul == True:
                 vidaR -=1
                 if (parametR * 4) >= vidaR > (parametR * 3):
-                    pass
+                    fu.texto_star_wars('REBELDES...')
+                    fu.texto_star_wars('Eles nos acertaram, mas os escudos estão aguentando por enquanto')
+                    fu.texto_star_wars('Se mantenham firmes na trajetória, precisamos quebrar o bloqueio')
                 elif (parametR * 3) >= vidaR > (parametR * 2):
-                    pass
+                    fu.texto_star_wars('REBELDES...')
+                    fu.texto_star_wars('Os escudos foram avariados!! Fomos atingidos!! Nosso bico dianteiro está comprometendo a estabilidade da nave…')
+                    fu.texto_star_wars('Redirecionem a energia dos propulsores para os escudos, precisamos estar vivos para fugir!')
                 elif (parametR * 2) >= vidaR > (parametR * 1):
-                    pass
+                    fu.texto_star_wars('REBELDES...')
+                    fu.texto_star_wars('OS ESCUDOS CAÍRAM!! Perdemos todo o nosso bico dianteiro e nossa estabilidade junto')
+                    fu.texto_star_wars('REDIRECIONEM TODA A ENERGIA PARA OS PROPULSORES E ARMAS, VAMOS GANHAR TEMPO!!!')
                 elif (parametR * 1) > vidaR:
-                    pass
+                    fu.texto_star_wars('REBELDES...')
+                    fu.texto_star_wars('A nave está totalmente comprometida, além do nosso bico, um dos nossos motores foi totalmente destruído.')
+                    fu.texto_star_wars('Vamos manter a esperança…')
+                    fu.texto_star_wars('POTÊNCIA MÁXIMA, ESTAMOS QUASE LÁ!!!')
+                time.sleep(2)
+                os.system('cls')
             elif resul == False:
-                print('Você ERROU')
+                if (parametR * 4) >= vidaR > (parametR * 3):
+                    fu.texto_star_wars('REBELDES...')
+                    fu.texto_star_wars('Estamos indo bem!!!')
+                    fu.texto_star_wars('O império ainda não nos reconheceu totalmente')
+                elif (parametR * 3) >= vidaR > (parametR * 2):
+                    fu.texto_star_wars('REBELDES...')
+                    fu.texto_star_wars('O IMPÉRIO JÁ NOS RECONHECEU!!')
+                    fu.texto_star_wars('Mas estamos bem, mantenha o curso!')
+                elif (parametR * 2) >= vidaR > (parametR * 1):
+                    fu.texto_star_wars('REBELDES...')
+                    fu.texto_star_wars('ESSA FOI QUASE!!')
+                    fu.texto_star_wars('Não podemos mais levar danos, MANTENHAM O FOCO!!')
+                elif (parametR * 1) > vidaR:
+                    fu.texto_star_wars('REBELDES...')
+                    fu.texto_star_wars('É questão de tempo…')
+                    fu.texto_star_wars('Não temos mais escudos e um dos motores está totalmente destruído. O que nos resta é resistir…')
+                time.sleep(2)
+                os.system('cls')
+
 
             os.system('cls')
             print('Minha vez')
