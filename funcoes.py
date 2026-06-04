@@ -764,5 +764,16 @@ def showMatriz_nbidsfn(matriz):
 
 
 
+def mostrar_nave(n, v, paramet):
+    if n == 1:               #RESISTENCIA
+        x = 0
+        if (paramet * 3) >= v > (paramet * 2):
+            x = 1
+        elif
+    elif n == 2:             #IMPERIO
+        pass
+        
+
+
 if __name__ == '__main__':
     pass

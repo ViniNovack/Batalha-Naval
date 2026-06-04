@@ -82,7 +82,7 @@ def humano_bot():
         os.system('cls')
         fu.texto_star_wars('REBELDES!!!')
         pygame.mixer.init()
-        pygame.mixer.music.load('March-of-the-Resistance.ogg') 
+        pygame.mixer.music.load('audio_batalha_resistencia.ogg') 
         pygame.mixer.music.play(-1)
         time.sleep(2)
         os.system('cls')
@@ -149,13 +149,20 @@ def humano_bot():
         time.sleep(2.5)
         os.system('cls')
 
+        pygame.mixer.init()
+        pygame.mixer.music.load('March-of-the-Resistance.ogg') 
+        pygame.mixer.music.play(-1)
+
         cont = 0
         resul = False
+        parametH = vidaH / 4
+        parametR = vidaR / 4
+        
         while vidaH != 0 or vidaR != 0:
             if cont == 0:
-                pass
+                fu.texto_star_wars_sem_musica("Faça sua primeira jogada nessa história…")
             
-            funcoes.masc(MASCH)
+            fu.masc_imperio(1)
             print()
             print('Espaço do Imperio'.center(10))
             funcoes.masc(MASCR)
