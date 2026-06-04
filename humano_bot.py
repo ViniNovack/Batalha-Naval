@@ -28,7 +28,7 @@ def humano_bot():
     vidaH = 0
 #______________________________________________________ABERTURA________________________________________________
     time.sleep(1)
-    fu.texto_star_wars('AGORA ESCOLHA UM LADO E DECIDA O DESTINO DESSA HISTÓRIA\n')
+    fu.texto_star_wars('AGORA ESCOLHA UM LADO E DECIDA O DESTINO DESSA HISTÓRIA...\n')
     
     time.sleep(1)
     pygame.mixer.init()
@@ -162,15 +162,21 @@ def humano_bot():
                 time.sleep(2.5)
                 os.system('cls')
                 fu.texto_star_wars('Nave rebelde identificada')
-                fu.mostrar_nave(2, vidaH, parametH)
-                fu.texto_star_wars('ATAQUEM')
+                fu.mostrar_nave(1, vidaR, parametR)
+                fu.texto_star_wars('ATAQUEM...')
 
 
             # JOGADAS
+            fu.showMatriz(mR)
             x = funcoes.verif_cordenada_XX()
             y = funcoes.verif_cordenada_Y()
-            resul = fu.jogadas_ataque(mR, x, y)
-            funcoes.masc(MASCR)
+            resul = fu.jogadas_ataque(mR, x, y, 1)
+            time.sleep(0.5)
+            os.system('cls')
+            fu.showMatriz(mR)
+            time.sleep(2)
+            os.system('cls')
+
             if resul == True:
                 print('Você ACERTOU')
                 vidaR -=1

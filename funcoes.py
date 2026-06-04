@@ -397,7 +397,17 @@ def jogadas_ataque(M, x, y, parametro):
             texto_star_wars(falas_do_imperio(1))
             return False
     elif parametro == 2:            #RESISTENCIA
-        pass
+        if M[x][y] == "◀" or M[x][y] == "▩":
+            pygame.mixer.init()
+            pygame.mixer.music.load('explosao.ogg') 
+            pygame.mixer.music.play()
+            M[x][y] = '💥'
+            texto_star_wars(falas_da_resistencia(2))
+            return True
+        else:
+            M[x][y] = '🌌'
+            texto_star_wars(falas_da_resistencia(1))
+            return False
 
 
 
