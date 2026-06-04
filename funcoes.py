@@ -305,7 +305,7 @@ def atacar(x,y, m, mAttack):
         mAttack[y][x] = '💥'
         return True
     else:
-        mAttack[y][x] = '🌟'
+        mAttack[y][x] = '🌌'
         return False
 
 
@@ -767,12 +767,28 @@ def showMatriz_nbidsfn(matriz):
 def mostrar_nave(n, v, paramet):
     if n == 1:               #RESISTENCIA
         x = 0
-        if (paramet * 3) >= v > (paramet * 2):
+        if (paramet * 4) >= v > (paramet * 3):
             x = 1
-        elif
+        elif (paramet * 3) >= v > (paramet * 2):
+            x = 2
+        elif (paramet * 2) >= v > (paramet * 1):
+            x = 3
+        else:
+            x = 4
+        masc_resistencia(x)
+
     elif n == 2:             #IMPERIO
-        pass
-        
+        x = 0
+        if (paramet * 4) >= v > (paramet * 3):
+            x = 1
+        elif (paramet * 3) >= v > (paramet * 2):
+            x = 2
+        elif (paramet * 2) >= v > (paramet * 1):
+            x = 3
+        else:
+            x = 4
+        masc_imperio(x)
+
 
 
 if __name__ == '__main__':
