@@ -219,7 +219,22 @@ def humano_bot():
 
 
             os.system('cls')
-            fu.texto_star_wars_sem_musica('')
+            if (parametR * 4) >= vidaR > (parametR * 3):
+                fu.texto_star_wars_sem_musica('Estamos bem!!!')
+                fu.texto_star_wars_sem_musica('Vamos contra-atacar, estamos indo bem')
+            elif (parametR * 3) >= vidaR > (parametR * 2):
+                fu.texto_star_wars_sem_musica('A nave está começando a perder os escudos')
+                fu.texto_star_wars_sem_musica('Precisamos ganhar mais tempo!!!')
+            elif (parametR * 2) >= vidaR > (parametR * 1):
+                fu.texto_star_wars_sem_musica('ESTAMOS SEM ESCUDOS!!!')
+                fu.texto_star_wars_sem_musica('Precisamos reagir…')
+            elif (parametR * 1) > vidaR:
+                fu.texto_star_wars_sem_musica('')
+                fu.texto_star_wars_sem_musica('')
+                fu.texto_star_wars_sem_musica('')
+            time.sleep(2)
+            os.system('cls')
+
             x = random.randrange(0, 10)
             y = random.randrange(0, 10)
             pygame.mixer.music.pause()
