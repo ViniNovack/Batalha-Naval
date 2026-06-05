@@ -305,6 +305,7 @@ def incluirNaves(m):
                 time.sleep(1)
                 os.system("cls")
                 vida = 0
+                m = matriz10()
                 continue
         return vida
 
