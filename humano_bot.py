@@ -229,25 +229,63 @@ def humano_bot():
                 fu.texto_star_wars_sem_musica('ESTAMOS SEM ESCUDOS!!!')
                 fu.texto_star_wars_sem_musica('Precisamos reagir…')
             elif (parametR * 1) > vidaR:
-                fu.texto_star_wars_sem_musica('')
-                fu.texto_star_wars_sem_musica('')
-                fu.texto_star_wars_sem_musica('')
+                fu.texto_star_wars_sem_musica('A NAVE ESTÁ PRATICAMENTE CONDENADA…')
+                fu.texto_star_wars_sem_musica('Precisamos furar o bloqueio e entrar no hiperespaço, AGORA!!!')
             time.sleep(2)
             os.system('cls')
 
+            fu.mostrar_nave(2, vidaH, parametH)
+            fu.showMatriz(mH)
             x = random.randrange(0, 10)
             y = random.randrange(0, 10)
             pygame.mixer.music.pause()
-            resul = funcoes.jogadas_ataque(mH, x, y, MASCH)
+            resul = funcoes.jogadas_ataque(mH, x, y, mH)
             pygame.mixer.music.unpause()
-            funcoes.masc(MASCH)
+            time.sleep(2)
+            os.system('cls')
+            fu.mostrar_nave(2, vidaH, parametH)
+            fu.showMatriz(mH)
             if resul == True:
-                print('Eu ACERTEI')
                 vidaH -=1
-            else:
-                print('EU ERREI')
+                if (parametR * 4) >= vidaH > (parametR * 3):
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('Eles nos acertaram, mas os escudos estão aguentando por enquanto')
+                    fu.texto_star_wars_sem_musica('Se mantenham firmes na trajetória, precisamos quebrar o bloqueio')
+                elif (parametR * 3) >= vidaH > (parametR * 2):
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('Os escudos foram avariados!! Fomos atingidos!! Nosso bico dianteiro está comprometendo a estabilidade da nave…')
+                    fu.texto_star_wars_sem_musica('Redirecionem a energia dos propulsores para os escudos, precisamos estar vivos para fugir!')
+                elif (parametR * 2) >= vidaH > (parametR * 1):
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('OS ESCUDOS CAÍRAM!! Perdemos todo o nosso bico dianteiro e nossa estabilidade junto')
+                    fu.texto_star_wars_sem_musica('REDIRECIONEM TODA A ENERGIA PARA OS PROPULSORES E ARMAS, VAMOS GANHAR TEMPO!!!')
+                elif (parametR * 1) > vidaH:
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('A nave está totalmente comprometida, além do nosso bico, um dos nossos motores foi totalmente destruído.')
+                    fu.texto_star_wars_sem_musica('Vamos manter a esperança…')
+                    fu.texto_star_wars_sem_musica('POTÊNCIA MÁXIMA, ESTAMOS QUASE LÁ!!!')
+                time.sleep(2)
+                os.system('cls')
+            elif resul == False:
+                if (parametR * 4) >= vidaH > (parametR * 3):
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('Estamos indo bem!!!')
+                    fu.texto_star_wars_sem_musica('O império ainda não nos reconheceu totalmente')
+                elif (parametR * 3) >= vidaH > (parametR * 2):
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('O IMPÉRIO JÁ NOS RECONHECEU!!')
+                    fu.texto_star_wars_sem_musica('Mas estamos bem, mantenha o curso!')
+                elif (parametR * 2) >= vidaH > (parametR * 1):
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('ESSA FOI QUASE!!')
+                    fu.texto_star_wars_sem_musica('Não podemos mais levar danos, MANTENHAM O FOCO!!')
+                elif (parametR * 1) > vidaH:
+                    fu.texto_star_wars_sem_musica('REBELDES...')
+                    fu.texto_star_wars_sem_musica('É questão de tempo…')
+                    fu.texto_star_wars_sem_musica('Não temos mais escudos e um dos motores está totalmente destruído. O que nos resta é resistir…')
+                time.sleep(2)
+                os.system('cls')
             cont +=1
-
         # FIM
         if vidaH == 0:
             return 1   #IMPERIO VENCEU

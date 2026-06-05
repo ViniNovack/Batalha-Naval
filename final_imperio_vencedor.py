@@ -11,3 +11,11 @@ import humano_humano
 
 ff = funcoes_imagens
 fu = funcoes
+
+def final_imperio_vencedor():
+    pass
+
+
+
+if __name__ == '__main__':
+    final_imperio_vencedor()

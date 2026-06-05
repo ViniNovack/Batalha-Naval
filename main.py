@@ -7,7 +7,8 @@ import funcoes_imagens
 import funcoes
 import humano_bot
 import humano_humano
-
+import final_imperio_vencedor
+import final_rebeldes_vencedores
 
 ff = funcoes_imagens
 fu = funcoes
@@ -50,13 +51,19 @@ def main():
     ff.centr('2. HUMANO X HUMANO')
     x = fu.verif_int('Digite sua opção de jogo: ', 3)
     pygame.mixer.music.stop()
+    resul = 0
     if x == 1:
         os.system('cls')
-        humano_bot.humano_bot()
+        resul = humano_bot.humano_bot()
     elif x == 2:
         os.system('cls')
-        humano_humano.humano_humano()
-
+        resul = humano_humano.humano_humano()
+    
+    if resul == 1:   #FINAL IMPERIO
+        final_imperio_vencedor.final_imperio_vencedor()
+    elif resul == 2:  #FINAL RESISTENCIA
+        final_rebeldes_vencedores.final_rebeldes_vencedores()
+    
 
 
 if __name__ == '__main__':
