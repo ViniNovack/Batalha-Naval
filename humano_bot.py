@@ -245,6 +245,8 @@ def humano_bot():
             os.system('cls')
             fu.mostrar_nave(2, vidaH, parametH)
             fu.showMatriz(mH)
+            time.sleep(2)
+            os.system('cls')
             if resul == True:
                 vidaH -=1
                 if (parametR * 4) >= vidaH > (parametR * 3):
@@ -292,8 +294,6 @@ def humano_bot():
         elif vidaR == 0:
             return 2 #RESISTENCIA VENCEU
 
-    
-    
 
 
 #__________________________________________________________ESCOLHA DE SER DA RESISTENCIA______________________________________

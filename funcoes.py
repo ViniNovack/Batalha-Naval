@@ -262,7 +262,7 @@ def incluirNaves(m):
             show_armas()
             print("-"*45)
             print("\nobs.: Você deverá posicionar pela ponta delas: ◀" \
-            "Você precisa bater um limite mínimo de 15 pontos de vida para poder jogar, então administre com sabedoria as armas que usará.")
+            "\n      Você precisa bater um limite mínimo de 15 pontos de vida para poder jogar, então administre com sabedoria as armas que usará.")
             print(f'Vida atual = {vida}')
             
             try:
@@ -290,7 +290,7 @@ def incluirNaves(m):
                         vida += 3
                     case 3:
                         while verf == False:
-                            x = verif_cordenada_X(3)
+                            x = verif_cordenada_X(2)
                             y = verif_cordenada_Y(1)
                             verf = colocar_arma4(m, x, y)
                         vida += 4
