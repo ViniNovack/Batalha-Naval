@@ -173,7 +173,7 @@ def humano_bot():
             resul = fu.jogadas_ataque(mR, x, y, 1)
             pygame.mixer.music.unpause()
             fu.showMatriz(mR)
-            time.sleep(2)
+            time.sleep(3)
             os.system('cls')
 
             if resul == True:

@@ -114,7 +114,7 @@ def show_armas():
     print("         ", end = "")
     print('Vida +=3', end='')
     print("         ", end = "")
-    print('Vida +=4', end='')
+    print('Vida +=4')
 
 
 
