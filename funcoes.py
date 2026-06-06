@@ -6,6 +6,13 @@ os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 import pygame
 
 
+
+# EFEITOS SONOROS
+som_explosao = pygame.mixer.Sound("explosao.ogg")
+som_tiro = pygame.mixer.Sound("tiro.ogg")
+som_digitaçao = pygame.mixer.Sound("digitando.ogg")
+
+
 class Cores:                              # Mensagemn de erro padrão: f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌'
     # VERMELHO
     vermelho = '\033[31m'

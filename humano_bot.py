@@ -165,13 +165,11 @@ def humano_bot():
 
             # JOGADAS
             fu.showMatriz(mR)
-            x = funcoes.verif_cordenada(x)
-            y = funcoes.verif_cordenada(y)
+            x = funcoes.verif_cordenada('coluna')
+            y = funcoes.verif_cordenada('linha')
             time.sleep(0.5)
             os.system('cls')
-            pygame.mixer.music.pause()
             resul = fu.jogadas_ataque(mR, x, y, 1)
-            pygame.mixer.music.unpause()
             fu.showMatriz(mR)
             time.sleep(3)
             os.system('cls')
