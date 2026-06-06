@@ -165,7 +165,7 @@ def humano_bot():
         parametH = round(vidaH / 4)      #"round" aredonda o valor numérico
         parametR = round(vidaR / 4)
         
-        while vidaH != 0 or vidaR != 0:
+        while vidaH != 0 or vidaR != 0 or vidaH > 0 or vidaR > 0:
             if cont == 0:
                 fu.texto_star_wars_sem_musica("Faça sua primeira jogada nessa história…")
                 time.sleep(2.5)
@@ -176,8 +176,8 @@ def humano_bot():
 
             # JOGADAS
             fu.showMatriz(mR)
-            x = funcoes.verif_cordenada('coluna')
-            y = funcoes.verif_cordenada('linha')
+            x = funcoes.verif_cordenada('linha')
+            y = funcoes.verif_cordenada('coluna')
             time.sleep(0.5)
             os.system('cls')
             resul = fu.jogadas_ataque(mR, x, y, 1)
@@ -296,9 +296,11 @@ def humano_bot():
                 os.system('cls')
             cont +=1
         # FIM
-        if vidaH == 0:
+        if vidaH >= 0:
+            print('IMPERIO VENCEU')
             return 1   #IMPERIO VENCEU
-        elif vidaR == 0:
+        elif vidaR >= 0:
+            print('RESISTENCIA VENCEU')
             return 2 #RESISTENCIA VENCEU
 
 

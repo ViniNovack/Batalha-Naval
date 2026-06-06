@@ -404,13 +404,14 @@ def jogadas_ataque(M, x, y, parametro):
     time.sleep(1)
     if parametro == 1:              #IMPERIO
         if M[x][y] == "◀" or M[x][y] == "▩":
-            pygame.mixer.init()
+            pygame.mixer.music.pause()
             som_explosao = pygame.mixer.Sound("explosao.ogg")
-            som_explosao.set_volume(200)
+            som_explosao.set_volume(1)
             som_explosao.play()
             M[x][y] = '💥'
             texto_star_wars(falas_do_imperio(2))
             time.sleep(4)
+            pygame.mixer.music.unpause()
             return True
         else:
             M[x][y] = '🌌'
@@ -418,13 +419,14 @@ def jogadas_ataque(M, x, y, parametro):
             return False
     elif parametro == 2:            #RESISTENCIA
         if M[x][y] == "◀" or M[x][y] == "▩":
-            pygame.mixer.init()
+            pygame.mixer.music.pause()
             som_explosao = pygame.mixer.Sound("explosao.ogg")
-            som_explosao.set_volume(200)
+            som_explosao.set_volume(1)
             som_explosao.play()
             M[x][y] = '💥'
             texto_star_wars(falas_da_resistencia(2))
             time.sleep(4)
+            pygame.mixer.music.unpause()
             return True
         else:
             M[x][y] = '🌌'
