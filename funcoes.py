@@ -408,6 +408,7 @@ def jogadas_ataque(M, x, y, parametro):
             pygame.mixer.Sound("explosao.ogg").play()
             M[x][y] = '💥'
             texto_star_wars(falas_do_imperio(2))
+            time.sleep(4)
             return True
         else:
             M[x][y] = '🌌'
@@ -419,6 +420,7 @@ def jogadas_ataque(M, x, y, parametro):
             pygame.mixer.Sound("explosao.ogg").play()
             M[x][y] = '💥'
             texto_star_wars(falas_da_resistencia(2))
+            time.sleep(4)
             return True
         else:
             M[x][y] = '🌌'

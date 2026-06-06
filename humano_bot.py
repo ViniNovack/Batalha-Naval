@@ -79,6 +79,7 @@ def humano_bot():
         time.sleep(2)
         os.system('cls')
         fi.comandante_imperial()
+        time.sleep(2)
         fu.texto_star_wars_sem_musica('“General!! Ligue o monitor da nave e vamos começar o ataque”')
         fu.texto_star_wars_sem_musica('"Isso foi uma ORDEM!!"')
         time.sleep(2)
@@ -246,7 +247,7 @@ def humano_bot():
             fu.showMatriz(mH)
             x = random.randrange(0, 10)
             y = random.randrange(0, 10)
-            resul = funcoes.jogadas_ataque(mH, x, y, mH)
+            resul = funcoes.jogadas_ataque(mH, x, y, 2)
             time.sleep(2)
             os.system('cls')
             fu.mostrar_nave(2, vidaH, parametH)
@@ -299,7 +300,6 @@ def humano_bot():
             return 1   #IMPERIO VENCEU
         elif vidaR == 0:
             return 2 #RESISTENCIA VENCEU
-
 
 
 #__________________________________________________________ESCOLHA DE SER DA RESISTENCIA______________________________________
