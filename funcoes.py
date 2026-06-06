@@ -8,10 +8,9 @@ import pygame
 
 
 # EFEITOS SONOROS
-pygame.mixer.init()
-som_explosao = pygame.mixer.Sound("explosao.ogg")
-som_tiro = pygame.mixer.Sound("tiro.ogg")
-som_digitaçao = pygame.mixer.Sound("digitando.ogg")
+# som_explosao = pygame.mixer.Sound("explosao.ogg")
+# som_tiro = pygame.mixer.Sound("tiro.ogg")
+# som_digitaçao = pygame.mixer.Sound("digitando.ogg")
 
 
 class Cores:                              # Mensagemn de erro padrão: f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌'
@@ -400,11 +399,15 @@ def falas_da_resistencia(parametro):
 
 
 def jogadas_ataque(M, x, y, parametro):
-    som_tiro.play()
+    pygame.mixer.init()
+    pygame.mixer.Sound("tiro.ogg")
+    pygame.mixer.music.play()
     time.sleep(1)
     if parametro == 1:              #IMPERIO
         if M[x][y] == "◀" or M[x][y] == "▩":
-            som_explosao.play()
+            pygame.mixer.init()
+            pygame.mixer.Sound("explosao.ogg")
+            pygame.mixer.music.play()
             M[x][y] = '💥'
             texto_star_wars(falas_do_imperio(2))
             return True
@@ -415,7 +418,7 @@ def jogadas_ataque(M, x, y, parametro):
     elif parametro == 2:            #RESISTENCIA
         if M[x][y] == "◀" or M[x][y] == "▩":
             pygame.mixer.init()
-            pygame.mixer.music.load('explosao.ogg') 
+            pygame.mixer.Sound("explosao.ogg")
             pygame.mixer.music.play()
             M[x][y] = '💥'
             texto_star_wars(falas_da_resistencia(2))
@@ -774,12 +777,13 @@ def verif_int(texto, n:int=0):
 
 
 def texto_star_wars(texto, nud=11, nur=61):
-    som_digitaçao.play()
+    pygame.mixer.init()
+    pygame.mixer.Sound("digitando.ogg")
+    pygame.mixer.music.play(-1)
     largura_terminal = shutil.get_terminal_size().columns
     linha_centralizada = texto.center(largura_terminal)
     x = 1
     y = 0
-    pygame.mixer.music.play(-1)
     for c in linha_centralizada:
         if c == ' ':
             print(c, end='', flush=True)

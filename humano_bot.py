@@ -8,16 +8,17 @@ import funcoes_imagens
 import funcoes
 
 
+
 fu = funcoes
 fi = funcoes_imagens
 
 
 
 # EFEITOS SONOROS
-pygame.mixer.init()
-som_explosao = pygame.mixer.Sound("explosao.ogg")
-som_tiro = pygame.mixer.Sound("tiro.ogg")
-som_digitaçao = pygame.mixer.Sound("digitando.ogg")
+# som_explosao = pygame.mixer.Sound("explosao.ogg")
+# som_tiro = pygame.mixer.Sound("tiro.ogg")
+# som_digitaçao = pygame.mixer.Sound("digitando.ogg")
+
 
 
 class Cores:                              # Mensagemn de erro padrão: f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌'
@@ -245,9 +246,7 @@ def humano_bot():
             fu.showMatriz(mH)
             x = random.randrange(0, 10)
             y = random.randrange(0, 10)
-            pygame.mixer.music.pause()
             resul = funcoes.jogadas_ataque(mH, x, y, mH)
-            pygame.mixer.music.unpause()
             time.sleep(2)
             os.system('cls')
             fu.mostrar_nave(2, vidaH, parametH)

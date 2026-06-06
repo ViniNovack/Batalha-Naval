@@ -14,10 +14,9 @@ c1 = Cores()
 
 
 # EFEITOS SONOROS
-pygame.mixer.init()
-som_explosao = pygame.mixer.Sound("explosao.ogg")
-som_tiro = pygame.mixer.Sound("tiro.ogg")
-som_digitaçao = pygame.mixer.Sound("digitando.ogg")
+# som_explosao = pygame.mixer.Sound("explosao.ogg")
+# som_tiro = pygame.mixer.Sound("tiro.ogg")
+# som_digitaçao = pygame.mixer.Sound("digitando.ogg")
 
 
 
@@ -484,7 +483,9 @@ def esploção_das_naves():
         WWMMMWWMMMWWWMMWWWMMMWWMMMWWWMMWWWMMMWWMMMWWMMMWWWMMWWWMMMWWMMWNNWMMMWWWMMMWWMMMWWWOoONWMMMWWMMMWWWMMWWWMMWWWMMMWWMMMWWWMMWWWMMMWWMMMWWMMMWW
         MMWWMMMWWWMMMWWMMMWWWMMMWWMMMWWMMWWWWMMWWWMMWWWMMMWWMMMWWMMMWWWWMWWWMMMMWNWWWMWWMMXd:oXMWWMMMMWWMMMWWMMMWWMMMWWWMMWWMMMWWWMMMWWWMMWWWMMMWWMM
     """
-    som_explosao.play()
+    pygame.mixer.init()
+    pygame.mixer.Sound("explosao.ogg")
+    pygame.mixer.music.play()
     largura_terminal = shutil.get_terminal_size().columns
     for linha in esploção.split('\n'):
         # Centraliza a linha de acordo com o tamanho do terminal
