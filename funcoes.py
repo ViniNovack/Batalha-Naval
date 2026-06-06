@@ -853,9 +853,11 @@ def showMatriz_nbidsfn(matriz):
 
 
 def mostrar_nave(nave, vida, paramet):
+    x = 0
     if nave == 1:               #RESISTENCIA
-        x = 0
-        if (paramet * 4) >= vida > (paramet * 3):
+        if vida > (paramet * 4):
+            x = 1
+        elif (paramet * 4) >= vida > (paramet * 3):
             x = 1
         elif (paramet * 3) >= vida > (paramet * 2):
             x = 2
@@ -866,8 +868,9 @@ def mostrar_nave(nave, vida, paramet):
         masc_resistencia(x)
 
     elif nave == 2:             #IMPERIO
-        x = 0
-        if (paramet * 4) >= vida > (paramet * 3):
+        if vida > (paramet * 4):
+            x = 1
+        elif (paramet * 4) >= vida > (paramet * 3):
             x = 1
         elif (paramet * 3) >= vida > (paramet * 2):
             x = 2
