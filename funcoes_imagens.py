@@ -483,10 +483,7 @@ def esploção_das_naves():
         WWMMMWWMMMWWWMMWWWMMMWWMMMWWWMMWWWMMMWWMMMWWMMMWWWMMWWWMMMWWMMWNNWMMMWWWMMMWWMMMWWWOoONWMMMWWMMMWWWMMWWWMMWWWMMMWWMMMWWWMMWWWMMMWWMMMWWMMMWW
         MMWWMMMWWWMMMWWMMMWWWMMMWWMMMWWMMWWWWMMWWWMMWWWMMMWWMMMWWMMMWWWWMWWWMMMMWNWWWMWWMMXd:oXMWWMMMMWWMMMWWMMMWWMMMWWWMMWWMMMWWWMMMWWWMMWWWMMMWWMM
     """
-    pygame.mixer.init()
-    pygame.mixer.music.load('explosao.ogg') 
-    pygame.mixer.music.play()
-
+    som_explosao.play()
     largura_terminal = shutil.get_terminal_size().columns
     for linha in esploção.split('\n'):
         # Centraliza a linha de acordo com o tamanho do terminal
