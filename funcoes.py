@@ -399,15 +399,11 @@ def falas_da_resistencia(parametro):
 
 
 def jogadas_ataque(M, x, y, parametro):
-    pygame.mixer.init()
-    pygame.mixer.music.load('tiro.ogg') 
-    pygame.mixer.music.play()
+    som_tiro.play()
     time.sleep(1)
     if parametro == 1:              #IMPERIO
         if M[x][y] == "◀" or M[x][y] == "▩":
-            pygame.mixer.init()
-            pygame.mixer.music.load('explosao.ogg') 
-            pygame.mixer.music.play()
+            som_explosao.play()
             M[x][y] = '💥'
             texto_star_wars(falas_do_imperio(2))
             return True
@@ -777,9 +773,7 @@ def verif_int(texto, n:int=0):
 
 
 def texto_star_wars(texto, nud=11, nur=61):
-    pygame.mixer.init()
-    pygame.mixer.music.load('digitando.ogg')
-
+    som_digitaçao.play()
     largura_terminal = shutil.get_terminal_size().columns
     linha_centralizada = texto.center(largura_terminal)
     x = 1
@@ -803,7 +797,7 @@ def texto_star_wars(texto, nud=11, nur=61):
                 if y == nur:
                     y = 0
                     x = 1
-    pygame.mixer.music.stop()
+    time.sleep(1)
     print()
 
 
@@ -864,7 +858,7 @@ def mostrar_nave(nave, vida, paramet):
             x = 2
         elif (paramet * 2) >= vida > (paramet * 1):
             x = 3
-        else:
+        elif (paramet * 1) >= vida:
             x = 4
         masc_resistencia(x)
 
@@ -876,7 +870,7 @@ def mostrar_nave(nave, vida, paramet):
             x = 2
         elif (paramet * 2) >= vida > (paramet * 1):
             x = 3
-        else:
+        elif (paramet * 1) >= vida:
             x = 4
         masc_imperio(x)
 
