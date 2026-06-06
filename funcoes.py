@@ -400,14 +400,12 @@ def falas_da_resistencia(parametro):
 
 def jogadas_ataque(M, x, y, parametro):
     pygame.mixer.init()
-    pygame.mixer.Sound("tiro.ogg")
-    pygame.mixer.music.play()
+    pygame.mixer.Sound("tiro.ogg").play()
     time.sleep(1)
     if parametro == 1:              #IMPERIO
         if M[x][y] == "◀" or M[x][y] == "▩":
             pygame.mixer.init()
-            pygame.mixer.Sound("explosao.ogg")
-            pygame.mixer.music.play()
+            pygame.mixer.Sound("explosao.ogg").play()
             M[x][y] = '💥'
             texto_star_wars(falas_do_imperio(2))
             return True
@@ -418,8 +416,7 @@ def jogadas_ataque(M, x, y, parametro):
     elif parametro == 2:            #RESISTENCIA
         if M[x][y] == "◀" or M[x][y] == "▩":
             pygame.mixer.init()
-            pygame.mixer.Sound("explosao.ogg")
-            pygame.mixer.music.play()
+            pygame.mixer.Sound("explosao.ogg").play()
             M[x][y] = '💥'
             texto_star_wars(falas_da_resistencia(2))
             return True
@@ -778,8 +775,7 @@ def verif_int(texto, n:int=0):
 
 def texto_star_wars(texto, nud=11, nur=61):
     pygame.mixer.init()
-    pygame.mixer.Sound("digitando.ogg")
-    pygame.mixer.music.play(-1)
+    pygame.mixer.Sound("digitando.ogg").play(-1)
     largura_terminal = shutil.get_terminal_size().columns
     linha_centralizada = texto.center(largura_terminal)
     x = 1
@@ -804,6 +800,7 @@ def texto_star_wars(texto, nud=11, nur=61):
                     x = 1
     time.sleep(1)
     print()
+    pygame.mixer.Sound("digitando.ogg").stop()
 
 
 

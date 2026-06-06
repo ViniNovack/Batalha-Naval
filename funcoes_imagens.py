@@ -421,7 +421,6 @@ def imagem_texto_batalha():
             print(c, end='', flush=True)
             time.sleep(0.009)
         print()
-
     pygame.mixer.music.stop()
 
 
@@ -484,8 +483,7 @@ def esploção_das_naves():
         MMWWMMMWWWMMMWWMMMWWWMMMWWMMMWWMMWWWWMMWWWMMWWWMMMWWMMMWWMMMWWWWMWWWMMMMWNWWWMWWMMXd:oXMWWMMMMWWMMMWWMMMWWMMMWWWMMWWMMMWWWMMMWWWMMWWWMMMWWMM
     """
     pygame.mixer.init()
-    pygame.mixer.Sound("explosao.ogg")
-    pygame.mixer.music.play()
+    pygame.mixer.Sound("explosao.ogg").play()
     largura_terminal = shutil.get_terminal_size().columns
     for linha in esploção.split('\n'):
         # Centraliza a linha de acordo com o tamanho do terminal
