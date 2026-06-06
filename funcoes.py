@@ -775,7 +775,8 @@ def verif_int(texto, n:int=0):
 
 def texto_star_wars(texto, nud=11, nur=61):
     pygame.mixer.init()
-    pygame.mixer.Sound("digitando.ogg").play(-1)
+    som_digitando = pygame.mixer.Sound("digitando.ogg")
+    som_digitando.play(-1)
     largura_terminal = shutil.get_terminal_size().columns
     linha_centralizada = texto.center(largura_terminal)
     x = 1
@@ -800,7 +801,7 @@ def texto_star_wars(texto, nud=11, nur=61):
                     x = 1
     time.sleep(1)
     print()
-    pygame.mixer.Sound("digitando.ogg").stop()
+    som_digitando.stop()
 
 
 
