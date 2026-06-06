@@ -14,6 +14,7 @@ c1 = Cores()
 
 
 # EFEITOS SONOROS
+pygame.mixer.init()
 som_explosao = pygame.mixer.Sound("explosao.ogg")
 som_tiro = pygame.mixer.Sound("tiro.ogg")
 som_digitaçao = pygame.mixer.Sound("digitando.ogg")
