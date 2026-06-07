@@ -38,9 +38,9 @@ def humano_humano():
     
     #______________________________________________________ABERTURA________________________________________________
     time.sleep(1)
-    # fu.texto_star_wars('AGORA CADA UM ESCOLHA SEU LADO E JUNTOS DECIDEM O DESTINO DESSA HISTÓRIA\n')
+    fu.texto_star_wars('AGORA CADA UM ESCOLHA SEU LADO E JUNTOS DECIDEM O DESTINO DESSA HISTÓRIA\n')
     
-    # time.sleep(1)
+    time.sleep(1)
     pygame.mixer.init()
     pygame.mixer.music.load('Audio_-Star-Wars-Epic.ogg') 
     pygame.mixer.music.play()
@@ -62,20 +62,43 @@ def humano_humano():
             print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
 
     if opcao == 1: #imperio
+        ladoA = 'imperio'
         os.system("cls")
-        # fu.texto_star_wars("Agora você é um comandante do Império Galático! Erradique a escória rebelde.")
+
+        pygame.mixer.music.load('Star-Wars-Imperial-March.ogg') 
+        pygame.mixer.music.play(-1)
+
+        fu.texto_star_wars_sem_musica("Você é um comandante do Império Galático!")
+        fu.texto_star_wars_sem_musica("Posicione as armas e ERRADIQUE essa escória rebelde.")
         
         vidaA = fu.incluirNaves(mA)
         os.system("cls")
-        # fu.texto_star_wars("Os canhões de blaster já estão postos e apontados para nós, direcione as energias dos escudos para as armas e vamos nos defender.")
+
+        pygame.mixer.music.stop()
+        pygame.mixer.music.load('March-of-the-Resistance.ogg') 
+        pygame.mixer.music.play(-1)
+
+        fu.texto_star_wars_sem_musica("Os canhões de blaster já estão postos e apontados para nós, direcione as energias dos escudos para as armas e vamos nos defender.")
         vidaB = fu.incluirNaves(mB)
         pass
     elif opcao == 2: #resistencia
+        ladoA = 'resistencia'
         os.system("cls")
-        # fu.texto_star_wars("")
+
+        pygame.mixer.music.load('March-of-the-Resistance.ogg') 
+        pygame.mixer.music.play(-1)
+
+
+        fu.texto_star_wars("texto sendo a resistencia")
         vidaA = fu.incluirNaves(mA)
+
         os.system("cls")
-        # fu.texto_star_wars("Os canhões de blaster já estão postos e apontados para nós, direcione as energias dos escudos para as armas e vamos nos defender.")
+        pygame.mixer.music.stop()
+
+        pygame.mixer.music.load('Star-Wars-Imperial-March.ogg') 
+        pygame.mixer.music.play(-1)
+
+        fu.texto_star_wars("texto do imperio pra conter os rebeldes")
         vidaB = fu.incluirNaves(mB)
 
     # ---------------------------------------------------------------
@@ -85,19 +108,76 @@ def humano_humano():
     # -- ATAQUES ----------------------------------------------------
 
     while (vidaA > 0 and vidaB > 0):
-        fu.showFields(mAAttack,mBAttack, vidaA, vidaB)
-        vidaA = fu.jogadasAtaque(mAAttack, mA, vidaA)
-        fu.showFields(mAAttack,mBAttack, vidaA, vidaB)
-        vidaB = fu.jogadasAtaque(mBAttack, mB, vidaB)
+        pygame.mixer.music.stop()
 
+        vidaAanterior = vidaA
+        vidaBanterior = vidaB
 
+        if ladoA == 'imperio':
+            pygame.mixer.music.load('audio_batalha_resistencia.ogg') 
+            pygame.mixer.music.play(-1)
+
+            fu.centr("Algo relacionado com o imperio atacando")
+
+            fu.showFields(mAAttack,mBAttack, vidaA, vidaB)
+            vidaA = fu.jogadasAtaque(mAAttack, mA, vidaA)
+
+            if vidaAanterior == vidaA:
+                fu.texto_star_wars(fu.falas_do_imperio(1))
+            else:
+                fu.texto_star_wars(fu.falas_do_imperio(2))
+                fu.masc_imperio(vidaA)
+                time.sleep(1.2)
+
+            os.system('cls')
+            fu.centr("Algo relacionado com a resistencia atacando")
+
+            fu.showFields(mAAttack,mBAttack, vidaA, vidaB)
+            vidaB = fu.jogadasAtaque(mBAttack, mB, vidaB)
+
+            if vidaBanterior == vidaB:
+                fu.texto_star_wars(fu.falas_da_resistencia(1))
+            else:
+                fu.texto_star_wars(fu.falas_da_resistencia(2))
+                fu.masc_resistencia(vidaB)
+                time.sleep(1.2)
+
+        else:
+            fu.centr("Algo relacionado com a resistencia atacando")
+
+            if vidaAanterior == vidaA:
+                fu.texto_star_wars(fu.falas_da_resistencia(1))
+            else:
+                fu.texto_star_wars(fu.falas_da_resistencia(2))
+                fu.masc_imperio(vidaA)
+                time.sleep(1.2)
+
+            os.system('cls')
+            fu.centr("Algo relacionado com o imperio atacando")
+
+            fu.showFields(mAAttack,mBAttack, vidaA, vidaB)
+            vidaB = fu.jogadasAtaque(mBAttack, mB, vidaB)
+
+            if vidaBanterior == vidaB:
+                fu.texto_star_wars(fu.falas_do_imperio(1))
+            else:
+                fu.texto_star_wars(fu.falas_do_imperio(2))
+                fu.masc_resistencia(vidaB)
+                time.sleep(1.2)
+
+            
         
-    
 
+    # ---------------------------------------------------------------
 
+    # -- VITORIA ----------------------------------------------------    
 
-    
-
+    if(vidaA == 0): # B GANHOU
+        return 1
+    else: # A GANHOU
+        return 2
+        
+    # ---------------------------------------------------------------
 
 
 if __name__ == '__main__':

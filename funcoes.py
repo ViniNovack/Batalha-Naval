@@ -263,7 +263,7 @@ def verif_cordenada_Y(size):
 def incluirNaves(m):
         vida = 0
         while vida != 15:
-            centr("Posicione os canhões até que some 15 de vida, escolha sabiamente.")
+            centr("\nPosicione os canhões até que some 15 de vida, escolha sabiamente.")
             showMatriz(m)
             print("\nEssas são suas opções de canhões:")
             print("-"*45)
@@ -325,9 +325,17 @@ def incluirNaves(m):
 
 def atacar(x,y, m, mAttack):
     if(m[y][x] != 0):
+        pygame.mixer.music.pause()
+        som_explosao = pygame.mixer.Sound("explosao.ogg")
+        som_explosao.set_volume(1)
+        som_explosao.play()
+        time.sleep(4)
+        pygame.mixer.music.unpause()
+
         mAttack[y][x] = 'X'
         return True
     else:
+
         mAttack[y][x] = '#'
         return False
 
@@ -341,6 +349,10 @@ def jogadasAtaque(mAttack, m, vida):
             if(mAttack[y][x] != 0):
                 print(f'❌{c1.vermelho} Você já tentou aí! É ASSIM QUE QUER VENCER? {c1.limpar}❌')
             else:
+                os.system("cls")
+                pygame.mixer.init()
+                pygame.mixer.Sound("tiro.ogg").play()
+                time.sleep(1)
                 if (atacar(x,y,m,mAttack)):
                     vida -= 1
                 return vida
@@ -440,7 +452,17 @@ def jogadas_ataque(M, x, y, parametro):
 
 
 
-def masc_imperio(s):
+def masc_imperio(vida):
+    if vida >= 13:
+        s = 1
+    elif vida >= 8:
+        s = 2
+    elif vida >= 4:
+        s = 3
+    else:
+        s = 4
+
+
     match s:
         case 1:
             nave = """
