@@ -83,7 +83,7 @@ def arma4():
 
 
 def colocar_arma4(M, x, y, f:float=True):
-    if (M[y][x] != 0 or M[y][x + 1] != 0 or M[y][x + 2] !=0 or M[y + 1][x + 1] != 0):
+    if (M[y][x] != 0 or M[y][x + 1] != 0 or M[y][x + 2] !=0 or M[y + 1][x + 2] != 0):
         if f == True:
             print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
         return False
@@ -229,7 +229,7 @@ def verif_cordenada_X(size):
 def verif_cordenada(sentido):
     while True:
         try:
-            x = int(input(f'Digite a linha {sentido}: '))
+            x = int(input(f'Digite a {sentido}: '))
             if x in range(0, 10):
                 return x
             else:
@@ -262,15 +262,15 @@ def verif_cordenada_Y(size):
 
 def incluirNaves(m):
         vida = 0
-        while vida < 15 or vida > 15:
+        while vida != 15:
+            centr("Posicione os canhões até que some 15 de vida, escolha sabiamente.")
             showMatriz(m)
-            print("\nEssas são suas opcções de canhões:")
+            print("\nEssas são suas opções de canhões:")
             print("-"*45)
             show_armas()
             print("-"*45)
-            print("\nobs.: Você deverá posicionar pela ponta delas: ◀" \
-            "\n      Você precisa bater um limite mínimo de 15 pontos de vida para poder jogar, então administre com sabedoria as armas que usará.")
-            print(f'Vida atual = {vida}')
+            print("\nobs.: Você deverá posicionar pela ponta delas: ◀")
+            print(f'\nVida atual = {vida}')
             
             try:
                 n = int(input('Digite a númeração do canhão: '))
@@ -279,40 +279,45 @@ def incluirNaves(m):
                 time.sleep(1)
                 os.system("cls")
                 continue
-
+            
             if n in range(1, 4):
                 verf = False
                 match n:
                     case 1:
-                        while verf == False:
-                            x = verif_cordenada_X(1)
-                            y = verif_cordenada_Y(0)
-                            verf = colocar_arma2(m, x, y)
-                        vida += 2
+                        if(vida == 12 or vida ==14):
+                            print(f'❌{c1.vermelho}Sua vida ultrapasará 15, escolha outro canhão.{c1.limpar}❌')
+                            time.sleep(1)
+                        else:
+                            while verf == False:
+                                x = verif_cordenada_X(1)
+                                y = verif_cordenada_Y(0)
+                                verf = colocar_arma2(m, x, y)
+                            vida += 2
                     case 2:
-                        while verf == False:
-                            x = verif_cordenada_X(2)
-                            y = verif_cordenada_Y(0)
-                            verf = colocar_arma3(m, x, y)
-                        vida += 3
+                        if(vida == 14 or vida == 13 or vida == 11):
+                            print(f'❌{c1.vermelho}Sua vida ultrapasará 15, escolha outro canhão.{c1.limpar}❌')
+                            time.sleep(1)
+                        else:
+                            while verf == False:
+                                x = verif_cordenada_X(2)
+                                y = verif_cordenada_Y(0)
+                                verf = colocar_arma3(m, x, y)
+                            vida += 3
                     case 3:
-                        while verf == False:
-                            x = verif_cordenada_X(2)
-                            y = verif_cordenada_Y(1)
-                            verf = colocar_arma4(m, x, y)
-                        vida += 4
+                        if(vida == 14 or vida == 13 or vida == 12 or vida == 10):
+                            print(f'❌{c1.vermelho}Sua vida ultrapasará 15, escolha outro canhão.{c1.limpar}❌')
+                            time.sleep(1)
+                        else:
+                            while verf == False:
+                                x = verif_cordenada_X(2)
+                                y = verif_cordenada_Y(1)
+                                verf = colocar_arma4(m, x, y)
+                            vida += 4
                 os.system("cls")      
             else:
                 print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
                 time.sleep(1)
                 os.system("cls")
-                continue
-            if vida > 15:
-                print(f'❌{c1.vermelho}A sua vida ultrapassou 15, que é o limite. Reposicione, por gentileza, seus canhões.{c1.limpar}❌')
-                time.sleep(1)
-                os.system("cls")
-                vida = 0
-                m = matriz10()
                 continue
         return vida
 
@@ -320,10 +325,10 @@ def incluirNaves(m):
 
 def atacar(x,y, m, mAttack):
     if(m[y][x] != 0):
-        mAttack[y][x] = '💥'
+        mAttack[y][x] = 'X'
         return True
     else:
-        mAttack[y][x] = '🌌'
+        mAttack[y][x] = '#'
         return False
 
 
