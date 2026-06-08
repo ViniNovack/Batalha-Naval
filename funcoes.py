@@ -463,6 +463,7 @@ def masc_imperio(vida):
         s = 4
 
 
+
     match s:
         case 1:
             nave = """
@@ -888,31 +889,18 @@ def showMatriz_nbidsfn(matriz):
 
 
 def mostrar_nave(nave, vida, paramet):
-    x = 0
-    if nave == 1:               #RESISTENCIA
-        if vida > (paramet * 4):
-            x = 1
-        elif (paramet * 4) >= vida > (paramet * 3):
-            x = 1
-        elif (paramet * 3) >= vida > (paramet * 2):
-            x = 2
-        elif (paramet * 2) >= vida > (paramet * 1):
-            x = 3
-        elif (paramet * 1) >= vida:
-            x = 4
+    if vida > (paramet * 3):
+        x = 1
+    elif vida > (paramet * 2):
+        x = 2
+    elif vida > (paramet * 1):
+        x = 3
+    else:
+        x = 4
+    
+    if nave == 1:
         masc_resistencia(x)
-
-    elif nave == 2:             #IMPERIO
-        if vida > (paramet * 4):
-            x = 1
-        elif (paramet * 4) >= vida > (paramet * 3):
-            x = 1
-        elif (paramet * 3) >= vida > (paramet * 2):
-            x = 2
-        elif (paramet * 2) >= vida > (paramet * 1):
-            x = 3
-        elif (paramet * 1) >= vida:
-            x = 4
+    elif nave == 2:
         masc_imperio(x)
 
 

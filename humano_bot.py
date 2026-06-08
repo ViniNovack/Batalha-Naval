@@ -162,8 +162,8 @@ def humano_bot():
 
         cont = 0
         resul = False
-        parametH = round(vidaH / 4)      #"round" aredonda o valor numérico
-        parametR = round(vidaR / 4)
+        parametH = vidaH // 4      #"round" aredonda o valor numérico
+        parametR = vidaR // 4
         
         while vidaH != 0 or vidaR != 0 or vidaH > 0 or vidaR > 0:
             if cont == 0:
