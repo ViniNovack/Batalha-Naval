@@ -63,7 +63,6 @@ def main():
         final_imperio_vencedor.final_imperio_vencedor()
     elif resul == 2:  #FINAL RESISTENCIA
         final_rebeldes_vencedores.final_rebeldes_vencedores()
-    
 
 
 if __name__ == '__main__':

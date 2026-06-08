@@ -397,7 +397,6 @@ def dentro_da_nave_resistencia():
 
 
 def imagem_texto_batalha():
-    
     texto = """                                                                             
           ..............       ........   ................   ..........     ......       ......   ......    .........             
          .,'............'.    ''......',..,..............,. ',........,.   .;...,'      .,...,'  .,'...,.  .,.......,.            
@@ -555,6 +554,37 @@ def comandante_imperial():
         # Centraliza a linha de acordo com o tamanho do terminal
         linha_centralizada = linha.center(largura_terminal)
         print(linha_centralizada)
+
+
+
+def imagem_fim():
+    texto = """                                                                                                                        
+                              .'.................'. .'....'..  .'......'.        .'.....'.                              
+                             .;.                .;..;.    .;;. .;.     .,.     .,'.     ',                              
+                             .,.                .;..,.    .,:. .,        ,'   .,.       .,                              
+                             .,.    .,,..........'..,.    .,;. .,         ',..,.        .,                              
+                             .,.    .,,......'.    .,.    .,:. .,          .;;.         .,                              
+                             .,.             ,'    .,.    .,:. .,           .           .,                              
+                             .,.     .'......,.    .,.    .,:. .,     .;.        ,'     .,                              
+                             .,.    .;.            .,.    .,:. .,     .:c.     .,c,     .,                              
+                             .,.    .,.            .,.    .,:. .,     .,.',   .,.''     .,                              
+                             .,.    .,.            .,.    .,:. .,     .,. ',..,. ''     .,                              
+                             .;'....,;.            .;,....';,. .;'....,;.  .;,.  .;.....,,                              
+                              ........              ........    ........          .......                               
+                                                                                                                        
+    """
+    pygame.mixer.init()
+    pygame.mixer.music.load('Star-Wars-Main-Theme-_Full_.ogg') 
+    pygame.mixer.music.play()
+
+    largura_terminal = shutil.get_terminal_size().columns
+    for linha in texto.split('\n'):
+        linha_centralizada = linha.center(largura_terminal)
+        for c in linha_centralizada:
+            print(c, end='', flush=True)
+            time.sleep(0.009)
+        print()
+    pygame.mixer.music.stop()
 
 
 

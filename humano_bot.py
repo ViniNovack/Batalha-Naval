@@ -312,7 +312,7 @@ def humano_bot():
     elif opcao == 2:
         os.system('cls')
         pygame.mixer.init()
-        pygame.mixer.music.load('Star-Wars-Imperial-March.ogg')
+        pygame.mixer.music.load('audio_batalha_resistencia.ogg')
         pygame.mixer.music.play(-1)
         fu.texto_star_wars_sem_musica("Você decidiu ser um membro da Resistência")
         fu.texto_star_wars_sem_musica("Assuma seu posto e tente fugir para sobreviver")
@@ -324,7 +324,7 @@ def humano_bot():
         # HUMANO
         cont = 0
         print()
-        fu.texto_star_wars_sem_musica("Você deve posicionar estrategicamente 5 armas para ELIMINAR os rebeldes invasores… PERMANENTEMENTE ")
+        fu.texto_star_wars_sem_musica("Você deve posicionar estrategicamente 5 armas para SE DEFENDER do destróier imperial pelo maior tempo POSSÍVEL…")
         time.sleep(2.5)
 
         vidaH = fu.incluirNaves(mH)
@@ -332,31 +332,31 @@ def humano_bot():
         os.system('cls')
         pygame.mixer.music.stop()
         pygame.mixer.init()
-        pygame.mixer.music.load('Star-Wars-Imperial-March.ogg') 
+        pygame.mixer.music.load('audio_batalha_resistencia.ogg') 
         pygame.mixer.music.play(-1)
-        fu.texto_star_wars_sem_musica('Agora, com todos os canhões posicionados, podemos começar a atacar')
-        fu.texto_star_wars_sem_musica('Precisamos impedir que eles passem o bloqueio e entrem no hiperespaço')
+        fu.texto_star_wars_sem_musica('Agora, com todos os canhões posicionados, podemos começar a se defender')
+        fu.texto_star_wars_sem_musica('Precisamos escapar do bloqueio espacial e acessar o hiperespaço!!!')
         time.sleep(2)
         os.system('cls')
-        fi.comandante_imperial()
+        fi.dentro_da_nave_resistencia()
         time.sleep(2)
-        fu.texto_star_wars_sem_musica('“General!! Ligue o monitor da nave e vamos começar o ataque”')
-        fu.texto_star_wars_sem_musica('"Isso foi uma ORDEM!!"')
+        fu.texto_star_wars_sem_musica('“Líder Bravo!! Confio em você para ajustar a mira dos monitores. Vamos fazer juntos… Como uma equipe!!!”')
+        fu.texto_star_wars_sem_musica('"VAMOS SAIR DAQUI!!!"')
         time.sleep(2)
         os.system('cls')
-        fu.masc_imperio(1)
+        fu.masc_resistencia(1)
         time.sleep(3)
         pygame.mixer.music.stop()
         
         # ROBO
         os.system('cls')
-        fu.texto_star_wars('REBELDES!!!')
+        fu.texto_star_wars('GENERAIS!!!')
         pygame.mixer.init()
-        pygame.mixer.music.load('audio_batalha_resistencia.ogg') 
+        pygame.mixer.music.load('Star-Wars-Imperial-March.ogg') 
         pygame.mixer.music.play(-1)
         time.sleep(2)
         os.system('cls')
-        fu.texto_star_wars_sem_musica('Estamos sob fogo pesado de um destróier!!!')
+        fu.texto_star_wars_sem_musica('Essa escória rebelde está achando que vão escapar do nosso bloqueio!!!')
         fu.texto_star_wars_sem_musica('Precisamos ganhar tempo para escapar do bloqueio estelar e entrar no hiperespaço')
         time.sleep(2.5)
         os.system('cls')
@@ -559,10 +559,10 @@ def humano_bot():
             cont +=1
         # FIM
         if vidaH >= 0:
-            print('IMPERIO VENCEU')
+            pygame.mixer.music.stop()
             return 1   #IMPERIO VENCEU
         elif vidaR >= 0:
-            print('RESISTENCIA VENCEU')
+            pygame.mixer.music.stop()
             return 2 #RESISTENCIA VENCEU
 
 if __name__ == '__main__':
