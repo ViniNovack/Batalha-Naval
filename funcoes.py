@@ -452,18 +452,7 @@ def jogadas_ataque(M, x, y, parametro):
 
 
 
-def masc_imperio(vida):
-    if vida >= 13:
-        s = 1
-    elif vida >= 8:
-        s = 2
-    elif vida >= 4:
-        s = 3
-    else:
-        s = 4
-
-
-
+def masc_imperio(s):
     match s:
         case 1:
             nave = """
