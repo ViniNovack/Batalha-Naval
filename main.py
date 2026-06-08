@@ -38,7 +38,7 @@ def main():
     time.sleep(1)
     ff.texto()
 
-    for n in range(0, 36):
+    for n in range(0, 53):
         time.sleep(1)
         print()
 
