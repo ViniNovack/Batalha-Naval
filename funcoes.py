@@ -143,6 +143,31 @@ def showMatriz(matriz):
         print(*i)
         x +=1
 
+def showField(m,vida):
+    print()
+
+    print("    ", end = "")
+    
+    for linha in range(len(m[0])):
+            print(linha, end=" ")
+
+    print()
+    print("   ", end = "")
+    print("—⊽"*len(m[0]) + "—")
+
+    x = 0
+    for i in m:
+        print(f"{x} ⊳ ", end = "")
+        print(*i)
+        x +=1
+
+    # -- mostra a vida ----------
+    print()
+
+    print(f"Vida: {vida}", end="")
+
+    
+    # ---------------------------
 
 
 def showFields(ma,mb, vidaA, vidaB):
@@ -415,38 +440,38 @@ def falas_da_resistencia(parametro):
 
 
 
-def jogadas_ataque(M, x, y, parametro):
+def jogadas_ataque(m, mAt, x, y, parametro):
     pygame.mixer.init()
     pygame.mixer.Sound("tiro.ogg").play()
     time.sleep(1)
     if parametro == 1:              #IMPERIO
-        if M[x][y] == "◀" or M[x][y] == "▩":
+        if m[x][y] == "◀" or m[x][y] == "▩":
             pygame.mixer.music.pause()
             som_explosao = pygame.mixer.Sound("explosao.ogg")
             som_explosao.set_volume(1)
             som_explosao.play()
-            M[x][y] = '💥'
+            mAt[x][y] = 'X'
             texto_star_wars(falas_do_imperio(2))
             time.sleep(4)
             pygame.mixer.music.unpause()
             return True
         else:
-            M[x][y] = '🌌'
+            mAt[x][y] = '#'
             texto_star_wars(falas_do_imperio(1))
             return False
     elif parametro == 2:            #RESISTENCIA
-        if M[x][y] == "◀" or M[x][y] == "▩":
+        if m[x][y] == "◀" or m[x][y] == "▩":
             pygame.mixer.music.pause()
             som_explosao = pygame.mixer.Sound("explosao.ogg")
             som_explosao.set_volume(1)
             som_explosao.play()
-            M[x][y] = '💥'
+            mAt[x][y] = 'X'
             texto_star_wars(falas_da_resistencia(2))
             time.sleep(4)
             pygame.mixer.music.unpause()
             return True
         else:
-            M[x][y] = '🌌'
+            mAt[x][y] = '#'
             texto_star_wars(falas_da_resistencia(1))
             return False
 

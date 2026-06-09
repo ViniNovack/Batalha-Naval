@@ -33,6 +33,8 @@ c1 = Cores()
 def humano_bot():
     mH = funcoes.matriz10()
     mR = funcoes.matriz10()
+    mAtH = funcoes.matriz10()
+    mAtR = funcoes.matriz10()
 
     vidaR = 0
     vidaH = 0
@@ -177,18 +179,13 @@ def humano_bot():
             # JOGADAS
             os.system('cls')
             fu.mostrar_nave(1, vidaR, parametR)
-            fu.showMatriz(mR)
-            x = funcoes.verif_cordenada('linha')
-            y = funcoes.verif_cordenada('coluna')
+            fu.showField(mAtR, vidaR)
             time.sleep(0.5)
             os.system('cls')
-            resul = fu.jogadas_ataque(mR, x, y, 1)
-            fu.showMatriz(mR)
-            time.sleep(3)
-            os.system('cls')
+            vidaRanterior = vidaR
+            vidaR = fu.jogadasAtaque(mAtR, mR, vidaR)
 
-            if resul == True:
-                vidaR -=1
+            if vidaRanterior == vidaR:
                 if (parametR * 4) >= vidaR > (parametR * 3):
                     fu.texto_star_wars_sem_musica('REBELDES...')
                     fu.texto_star_wars_sem_musica('Eles nos acertaram, mas os escudos estão aguentando por enquanto')
@@ -208,7 +205,7 @@ def humano_bot():
                     fu.texto_star_wars_sem_musica('POTÊNCIA MÁXIMA, ESTAMOS QUASE LÁ!!!')
                 time.sleep(2)
                 os.system('cls')
-            elif resul == False:
+            else:
                 if (parametR * 4) >= vidaR > (parametR * 3):
                     fu.texto_star_wars_sem_musica('REBELDES...')
                     fu.texto_star_wars_sem_musica('Estamos indo bem!!!')
@@ -246,16 +243,13 @@ def humano_bot():
             os.system('cls')
 
             fu.mostrar_nave(2, vidaH, parametH)
-            fu.showMatriz(mH)
+            fu.showField(mAtH, vidaH)
             x = random.randrange(0, 10)
             y = random.randrange(0, 10)
-            resul = funcoes.jogadas_ataque(mH, x, y, 2)
+            resul = fu.jogadas_ataque(mAtH, x,y, 2)
             time.sleep(2)
             os.system('cls')
             fu.mostrar_nave(2, vidaH, parametH)
-            fu.showMatriz(mH)
-            time.sleep(2)
-            os.system('cls')
             if resul == True:
                 vidaH -=1
                 if (parametR * 4) >= vidaH > (parametR * 3):
@@ -277,7 +271,7 @@ def humano_bot():
                     fu.texto_star_wars_sem_musica('POTÊNCIA MÁXIMA, ESTAMOS QUASE LÁ!!!')
                 time.sleep(2)
                 os.system('cls')
-            elif resul == False:
+            else:
                 if (parametR * 4) >= vidaH > (parametR * 3):
                     fu.texto_star_wars_sem_musica('REBELDES...')
                     fu.texto_star_wars_sem_musica('Estamos indo bem!!!')
@@ -428,7 +422,6 @@ def humano_bot():
         pygame.mixer.music.play(-1)
 
         cont = 0
-        resul = False
         parametH = vidaH // 4      #"//" aredonda o valor numérico
         parametR = vidaR // 4
         
@@ -445,18 +438,16 @@ def humano_bot():
             # JOGADAS
             os.system('cls')
             fu.mostrar_nave(2, vidaH, parametH)
-            fu.showMatriz(mH)
+            fu.showField(mAtH)
             x = funcoes.verif_cordenada('linha')
             y = funcoes.verif_cordenada('coluna')
             time.sleep(0.5)
             os.system('cls')
-            resul = fu.jogadas_ataque(mH, x, y, 2)
-            fu.showMatriz(mH)
-            time.sleep(3)
+            resul = fu.jogadas_ataque(mH,mAtH,x,y,1)
             os.system('cls')
 
             if resul == True:
-                vidaH -=1
+                
                 if (parametH * 4) >= vidaH > (parametH * 3):
                     fu.texto_star_wars_sem_musica('REBELDES...')
                     fu.texto_star_wars_sem_musica('Eles nos acertaram, mas os escudos estão aguentando por enquanto')
@@ -476,7 +467,7 @@ def humano_bot():
                     fu.texto_star_wars_sem_musica('POTÊNCIA MÁXIMA, ESTAMOS QUASE LÁ!!!')
                 time.sleep(2)
                 os.system('cls')
-            elif resul == False:
+            else:
                 if (parametH * 4) >= vidaH > (parametH * 3):
                     fu.texto_star_wars_sem_musica('REBELDES...')
                     fu.texto_star_wars_sem_musica('Estamos indo bem!!!')
@@ -514,18 +505,19 @@ def humano_bot():
             os.system('cls')
 
             fu.mostrar_nave(1, vidaR, parametR)
-            fu.showMatriz(mR)
+            fu.showField(mAtR)
             x = random.randrange(0, 10)
             y = random.randrange(0, 10)
-            resul = funcoes.jogadas_ataque(mR, x, y, 1)
+            vidaRanterior = vidaR
+            vidaR = funcoes.jogadasAtaque(mAtR, mR, vidaR)
             time.sleep(2)
             os.system('cls')
             fu.mostrar_nave(1, vidaR, parametR)
-            fu.showMatriz(mR)
+            fu.showField(mAtR)
             time.sleep(2)
             os.system('cls')
-            if resul == True:
-                vidaH -=1
+            if vidaR == vidaRanterior:
+                
                 if (parametR * 4) >= vidaH > (parametR * 3):
                     fu.texto_star_wars_sem_musica('REBELDES...')
                     fu.texto_star_wars_sem_musica('Eles nos acertaram, mas os escudos estão aguentando por enquanto')
@@ -545,7 +537,7 @@ def humano_bot():
                     fu.texto_star_wars_sem_musica('POTÊNCIA MÁXIMA, ESTAMOS QUASE LÁ!!!')
                 time.sleep(2)
                 os.system('cls')
-            elif resul == False:
+            else:
                 if (parametR * 4) >= vidaH > (parametR * 3):
                     fu.texto_star_wars_sem_musica('REBELDES...')
                     fu.texto_star_wars_sem_musica('Estamos indo bem!!!')
