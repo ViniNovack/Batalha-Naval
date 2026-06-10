@@ -366,7 +366,7 @@ def atacar(x,y, m, mAttack):
 
 
 
-def jogadasAtaque(mAttack, m, vida):
+def jogadasAtaque(mAttack, m, vida, lado):
     while True:
         try:
             x = verif_cordenada('coluna')
@@ -380,6 +380,15 @@ def jogadasAtaque(mAttack, m, vida):
                 time.sleep(1)
                 if (atacar(x,y,m,mAttack)):
                     vida -= 1
+                    if lado == 'r':
+                        texto_star_wars(falas_do_imperio(2))
+                    else:
+                        texto_star_wars(falas_da_resistencia(2))
+                else:
+                    if lado == 'r':
+                        texto_star_wars(falas_do_imperio(1))
+                    else:
+                        texto_star_wars(falas_da_resistencia(1))
                 return vida
             
         except ValueError:

@@ -418,7 +418,7 @@ def imagem_texto_batalha():
         linha_centralizada = linha.center(largura_terminal)
         for c in linha_centralizada:
             print(c, end='', flush=True)
-            time.sleep(0.009)
+            time.sleep(0.003)
         print()
     pygame.mixer.music.stop()
 
@@ -582,7 +582,7 @@ def imagem_fim():
         linha_centralizada = linha.center(largura_terminal)
         for c in linha_centralizada:
             print(c, end='', flush=True)
-            time.sleep(0.009)
+            time.sleep(0.007)
         print()
     pygame.mixer.music.stop()
 
@@ -667,4 +667,4 @@ def imagem_nave_indo_em_bora():
 
 
 if __name__ == '__main__':
-    pass
+    imagem_fim()

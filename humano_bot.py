@@ -183,9 +183,9 @@ def humano_bot():
             time.sleep(0.5)
             os.system('cls')
             vidaRanterior = vidaR
-            vidaR = fu.jogadasAtaque(mAtR, mR, vidaR)
+            vidaR = fu.jogadasAtaque(mAtR, mR, vidaR, 'i')
 
-            if vidaRanterior == vidaR:
+            if vidaRanterior != vidaR:
                 if (parametR * 4) >= vidaR > (parametR * 3):
                     fu.texto_star_wars_sem_musica('REBELDES...')
                     fu.texto_star_wars_sem_musica('Eles nos acertaram, mas os escudos estão aguentando por enquanto')
@@ -204,7 +204,7 @@ def humano_bot():
                     fu.texto_star_wars_sem_musica('Vamos manter a esperança…')
                     fu.texto_star_wars_sem_musica('POTÊNCIA MÁXIMA, ESTAMOS QUASE LÁ!!!')
                 time.sleep(2)
-                os.system('cls')
+            
             else:
                 if (parametR * 4) >= vidaR > (parametR * 3):
                     fu.texto_star_wars_sem_musica('REBELDES...')
@@ -223,7 +223,7 @@ def humano_bot():
                     fu.texto_star_wars_sem_musica('É questão de tempo…')
                     fu.texto_star_wars_sem_musica('Não temos mais escudos e um dos motores está totalmente destruído. O que nos resta é resistir…')
                 time.sleep(2)
-                os.system('cls')
+                
 
 
             os.system('cls')
@@ -246,7 +246,7 @@ def humano_bot():
             fu.showField(mAtH, vidaH)
             x = random.randrange(0, 10)
             y = random.randrange(0, 10)
-            resul = fu.jogadas_ataque(mAtH, x,y, 2)
+            resul = fu.jogadas_ataque(mH, mAtH, x,y, 2)
             time.sleep(2)
             os.system('cls')
             fu.mostrar_nave(2, vidaH, parametH)
@@ -509,7 +509,7 @@ def humano_bot():
             x = random.randrange(0, 10)
             y = random.randrange(0, 10)
             vidaRanterior = vidaR
-            vidaR = funcoes.jogadasAtaque(mAtR, mR, vidaR)
+            vidaR = funcoes.jogadasAtaque(mAtR, mR, vidaR, 'r')
             time.sleep(2)
             os.system('cls')
             fu.mostrar_nave(1, vidaR, parametR)
