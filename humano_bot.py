@@ -5,7 +5,6 @@ import pygame
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 import random
 import funcoes_imagens
-import funcoes
 
 
 
@@ -113,13 +112,13 @@ def humano_bot():
 
         vidaR = 0
 
-        while vida != 15:
+        while vidaR != 15:
             n = random.randrange(1, 4)
             
             verf = False
             match n:
                 case 1:
-                    if(vida == 12 or vida ==14):
+                    if(vidaR == 12 or vidaR ==14):
                         continue
                     else:
                         while verf == False:
@@ -129,7 +128,7 @@ def humano_bot():
                         
                         vidaR +=2
                 case 2:
-                    if(vida == 14 or vida == 13 or vida == 11):
+                    if(vidaR == 14 or vidaR == 13 or vidaR == 11):
                         continue
                     else:
                         while verf == False:
@@ -139,7 +138,7 @@ def humano_bot():
                         
                         vidaR +=3
                 case 3:
-                    if(vida == 14 or vida == 13 or vida == 12 or vida == 10):
+                    if(vidaR == 14 or vidaR == 13 or vidaR == 12 or vidaR == 10):
                         continue
                     else:
                         while verf == False:
@@ -178,7 +177,7 @@ def humano_bot():
         parametH = vidaH // 4      #"//" aredonda o valor numérico
         parametR = vidaR // 4
         
-        while vidaH and vidaR > 0:
+        while vidaH > 0 and vidaR > 0:
             if cont == 0:
                 fu.texto_star_wars_sem_musica("Faça sua primeira jogada nessa história…")
                 time.sleep(2.5)
@@ -526,7 +525,7 @@ def humano_bot():
                 x = random.randrange(0, 10)
                 y = random.randrange(0, 10)
 
-            resul = funcoes.jogadas_ataque(mAtH, mH, vidaH, 1)
+            resul = funcoes.jogadas_ataque(mH, mAtH, x, y, 1)
             os.system('cls')
 
             fu.mostrar_nave(1, vidaH, parametH)
@@ -535,7 +534,7 @@ def humano_bot():
             os.system('cls')
  
             if resul == True:
-                vida -= 1
+                vidaH -= 1
                 if (parametH * 4) >= vidaH > (parametH * 3):
                     fu.texto_star_wars_sem_musica('REBELDES...')
                     fu.texto_star_wars_sem_musica('Fomos atingidos, mas os escudos ainda estão segurando')

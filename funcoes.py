@@ -176,11 +176,11 @@ def showFields(ma,mb, vidaA, vidaB):
     # -- mostra o titulo ----------
 
     print(" "*10, end = "") # recuo
-    print(f"IMPERIO", end="")
+    print("IMPERIO", end="")
 
     print(" "*25, end="") #espaço do meio
 
-    print(f"RESISTENCIA")
+    print("RESISTENCIA")
 
     # ---------------------------
 

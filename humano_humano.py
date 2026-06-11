@@ -4,7 +4,6 @@ import os
 import pygame
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 import funcoes_imagens
-import funcoes
 
 fu = funcoes
 fi = funcoes_imagens
