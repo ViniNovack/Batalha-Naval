@@ -167,7 +167,7 @@ def humano_bot():
         parametH = vidaH // 4      #"//" aredonda o valor numérico
         parametR = vidaR // 4
         
-        while vidaH != 0 or vidaR != 0 or vidaH > 0 or vidaR > 0:
+        while vidaH and vidaR > 0:
             if cont == 0:
                 fu.texto_star_wars_sem_musica("Faça sua primeira jogada nessa história…")
                 time.sleep(2.5)
@@ -292,10 +292,10 @@ def humano_bot():
                 os.system('cls')
             cont +=1
         # FIM
-        if vidaH >= 0:
+        if vidaH <= 0:
             print('IMPERIO VENCEU')
             return 1   #IMPERIO VENCEU
-        elif vidaR >= 0:
+        elif vidaR <= 0:
             print('RESISTENCIA VENCEU')
             return 2 #RESISTENCIA VENCEU
 
@@ -436,10 +436,8 @@ def humano_bot():
             # JOGADAS (humano rebelde ataca o destróier imperial — mR)
             os.system('cls')
             fu.mostrar_nave(2, vidaR, parametR)
-            fu.showField(mAtR)
-            x = funcoes.verif_cordenada('linha')
-            y = funcoes.verif_cordenada('coluna')
-            time.sleep(0.5)
+            fu.showField(mAtR, vidaR)
+            
             os.system('cls')
             vidaRanterior = vidaR
             vidaR = fu.jogadasAtaque(mAtR, mR, vidaR, 'r')
@@ -503,19 +501,19 @@ def humano_bot():
  
             # BOT (imperial) ataca a nave rebelde (mH)
             fu.mostrar_nave(1, vidaH, parametH)
-            fu.showField(mAtH)
+            fu.showField(mAtH, vidaH)
             x = random.randrange(0, 10)
             y = random.randrange(0, 10)
-            vidaHanterior = vidaH
-            vidaH = funcoes.jogadasAtaque(mAtH, mH, vidaH, 'i')
+            resul = funcoes.jogadas_ataque(mAtH, mH, vidaH, 1)
             time.sleep(2)
             os.system('cls')
             fu.mostrar_nave(1, vidaH, parametH)
-            fu.showField(mAtH)
+            fu.showField(mAtH, vidaH)
             time.sleep(2)
             os.system('cls')
  
-            if vidaHanterior != vidaH:
+            if resul == True:
+                vida -= 1
                 if (parametH * 4) >= vidaH > (parametH * 3):
                     fu.texto_star_wars_sem_musica('REBELDES...')
                     fu.texto_star_wars_sem_musica('Fomos atingidos, mas os escudos ainda estão segurando')

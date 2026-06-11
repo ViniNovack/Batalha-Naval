@@ -113,46 +113,38 @@ def humano_humano():
         vidaAanterior = vidaA
         vidaBanterior = vidaB
 
-        if ladoA == 'imperio':
+        if ladoA == 'imperio': # imperio = A X resitencia = B
             pygame.mixer.music.load('Star-Wars-Imperial-March.ogg') 
             pygame.mixer.music.play(-1)
 
-            fu.centr("Algo relacionado com o imperio atacando")
+            fu.centr("O Império não perdoa traidores. Fogo a vontade!")
 
             fu.mostrar_nave(1, vidaB, parametro)
             fu.showFields(mAAttack,mBAttack, vidaA, vidaB)
             vidaB = fu.jogadasAtaque(mBAttack, mB, vidaB, 'i')
 
-            fu.mostrar_nave(1, vidaB, parametro)
-            time.sleep(1.2)
-
             os.system('cls')
+
             pygame.mixer.music.stop() 
             pygame.mixer.music.load('audio_batalha_resistencia.ogg') 
             pygame.mixer.music.play(-1)
 
-            fu.centr("Algo relacionado com a resistencia atacando")
+            fu.centr("Pela liberdade de Naboo! Não recuem!")
 
             fu.mostrar_nave(2, vidaA, parametro)
             fu.showFields(mAAttack,mBAttack, vidaA, vidaB)
             vidaA = fu.jogadasAtaque(mAAttack, mA, vidaA, 'r')
 
-            fu.mostrar_nave(2, vidaA, parametro)
-            time.sleep(1.2)
-
-        else:
+        else: # resistencia = A X imperio = B
             pygame.mixer.music.stop() 
             pygame.mixer.music.load('audio_batalha_resistencia.ogg') 
             pygame.mixer.music.play(-1)
 
-            fu.centr("Algo relacionado com a resistencia atacando")
+            fu.centr("Pela liberdade de Naboo! Não recuem!")
             
             fu.mostrar_nave(2, vidaB, parametro)
-            fu.showFields(mAAttack,mBAttack, vidaA, vidaB)
+            fu.showFields(mBAttack,mAAttack, vidaB, vidaA)
             vidaB = fu.jogadasAtaque(mBAttack, mB, vidaB, 'r')
-
-            fu.mostrar_nave(2, vidaB, parametro)
-            time.sleep(1.2)
 
             os.system('cls')
 
@@ -160,15 +152,12 @@ def humano_humano():
             pygame.mixer.music.load('Star-Wars-Imperial-March.ogg') 
             pygame.mixer.music.play(-1)
 
-            fu.centr("Algo relacionado com o imperio atacando")
+            fu.centr("O Império não perdoa traidores. Fogo a vontade!")
 
             fu.mostrar_nave(1, vidaA, parametro)
-            fu.showFields(mAAttack,mBAttack, vidaA, vidaB)
+            fu.showFields(mBAttack,mAAttack, vidaB, vidaA)
             vidaA = fu.jogadasAtaque(mAAttack, mA, vidaA, 'i')
 
-            
-            fu.mostrar_nave(1, vidaA, parametro)
-            time.sleep(1.2)
 
             
         
@@ -178,9 +167,15 @@ def humano_humano():
     # -- VITORIA ----------------------------------------------------    
 
     if(vidaA == 0): # B GANHOU
-        return 1
+        if ladoA == 'imperio':
+            return 1
+        else: 
+            return 2
     else: # A GANHOU
-        return 2
+        if ladoA == 'imperio':
+            return 2
+        else: 
+            return 1
         
     # ---------------------------------------------------------------
 

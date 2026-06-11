@@ -83,7 +83,7 @@ def arma4():
 
 
 def colocar_arma4(M, x, y, f:float=True):
-    if (M[y][x] != 0 or M[y][x + 1] != 0 or M[y][x + 2] !=0 or M[y + 1][x + 2] != 0):
+    if (M[y][x] != 0 or M[y][x + 1] != 0 or M[y][x + 2] !=0 or M[y + 1][x + 1] != 0):
         if f == True:
             print(f'❌{c1.vermelho} TENTE DE NOVO, resposta INVALIDA {c1.limpar}❌')
         return False
