@@ -362,14 +362,14 @@ python main.py
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/CarolinaFariaCassaro">
-        <img src="https://github.com/CarolinaFariaCassaro.png" width="100px" style="border-radius: 50%;" alt="CarolinaFariaCassaro"/>
+      <a href="https://github.com/carolinacassaro">
+        <img src="https://github.com/carolinacassaro.png" width="100px" style="border-radius: 50%;" alt="carolinacassaro"/>
         <br/>
         <sub><b>Carolina Faria Cassaro</b></sub>
       </a>
       <br/>
-      <a href="https://github.com/CarolinaFariaCassaro">
-        <img src="https://img.shields.io/badge/CarolinaFariaCassaro-181717?style=flat-square&logo=github&logoColor=white"/>
+      <a href="https://github.com/carolinacassaro">
+        <img src="https://img.shields.io/badge/carolinacassaro-181717?style=flat-square&logo=github&logoColor=white"/>
       </a>
     </td>
   </tr>
