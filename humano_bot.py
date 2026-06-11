@@ -110,35 +110,46 @@ def humano_bot():
         time.sleep(2.5)
         os.system('cls')
         fi.dentro_da_nave_resistencia()
-        cont = 0
-        while cont < 5:
+
+        vidaR = 0
+
+        while vida != 15:
             n = random.randrange(1, 4)
-            if n in range(1, 4):
-                verf = False
-                match n:
-                    case 1:
+            
+            verf = False
+            match n:
+                case 1:
+                    if(vida == 12 or vida ==14):
+                        continue
+                    else:
                         while verf == False:
                             x = random.randrange(0, 9) 
                             y = random.randrange(0, 10)
                             verf = funcoes.colocar_arma2(mR, x, y, False)
-                        cont +=1
+                        
                         vidaR +=2
-                    case 2:
+                case 2:
+                    if(vida == 14 or vida == 13 or vida == 11):
+                        continue
+                    else:
                         while verf == False:
                             x = random.randrange(0, 8)
                             y = random.randrange(0, 10)
                             verf = funcoes.colocar_arma3(mR, x, y, False)
-                        cont +=1
+                        
                         vidaR +=3
-                    case 3:
+                case 3:
+                    if(vida == 14 or vida == 13 or vida == 12 or vida == 10):
+                        continue
+                    else:
                         while verf == False:
                             x = random.randrange(0, 8)
                             y = random.randrange(0, 9)
                             verf = funcoes.colocar_arma4(mR, x, y, False)
-                        cont +=1
+                        
                         vidaR +=4
-            else:
-                continue
+        
+            continue
 
         time.sleep(3)
         os.system('cls')
@@ -180,8 +191,6 @@ def humano_bot():
             os.system('cls')
             fu.mostrar_nave(1, vidaR, parametR)
             fu.showField(mAtR, vidaR)
-            time.sleep(0.5)
-            os.system('cls')
             vidaRanterior = vidaR
             vidaR = fu.jogadasAtaque(mAtR, mR, vidaR, 'i')
 
@@ -243,13 +252,21 @@ def humano_bot():
             os.system('cls')
 
             fu.mostrar_nave(2, vidaH, parametH)
-            fu.showField(mAtH, vidaH)
             x = random.randrange(0, 10)
             y = random.randrange(0, 10)
+
+            while mAtH[y][x] != 0:
+                x = random.randrange(0, 10)
+                y = random.randrange(0, 10)
+
+
             resul = fu.jogadas_ataque(mH, mAtH, x,y, 2)
-            time.sleep(2)
+
             os.system('cls')
             fu.mostrar_nave(2, vidaH, parametH)
+            fu.showField(mAtH, vidaH)
+            time.sleep(2)
+            os.system('cls')
             if resul == True:
                 vidaH -=1
                 if (parametR * 4) >= vidaH > (parametR * 3):
@@ -437,10 +454,10 @@ def humano_bot():
             os.system('cls')
             fu.mostrar_nave(2, vidaR, parametR)
             fu.showField(mAtR, vidaR)
-            
-            os.system('cls')
+
             vidaRanterior = vidaR
             vidaR = fu.jogadasAtaque(mAtR, mR, vidaR, 'r')
+
             os.system('cls')
  
             if vidaRanterior != vidaR:
@@ -501,12 +518,17 @@ def humano_bot():
  
             # BOT (imperial) ataca a nave rebelde (mH)
             fu.mostrar_nave(1, vidaH, parametH)
-            fu.showField(mAtH, vidaH)
+            
             x = random.randrange(0, 10)
             y = random.randrange(0, 10)
+
+            while mAtH[y][x] != 0:
+                x = random.randrange(0, 10)
+                y = random.randrange(0, 10)
+
             resul = funcoes.jogadas_ataque(mAtH, mH, vidaH, 1)
-            time.sleep(2)
             os.system('cls')
+
             fu.mostrar_nave(1, vidaH, parametH)
             fu.showField(mAtH, vidaH)
             time.sleep(2)

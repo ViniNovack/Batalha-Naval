@@ -165,6 +165,7 @@ def showField(m,vida):
     print()
 
     print(f"Vida: {vida}", end="")
+    print()
 
     
     # ---------------------------
